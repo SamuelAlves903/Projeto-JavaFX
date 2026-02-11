@@ -1,6 +1,7 @@
 package com.clinica.fx.controller;
 
 import com.clinica.fx.service.LoginService;
+import com.clinica.fx.util.Alerts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,6 +36,9 @@ public class LoginController {
                 Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stageAtual.setScene(novaScene);
                 stageAtual.show();
+            }
+            else {
+                Alerts.erro("Usuario ou Senha invalido!");
             }
         }
         catch (IOException ex){
