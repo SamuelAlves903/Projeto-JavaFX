@@ -4,117 +4,75 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="476.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-         <menus>
-            <Menu mnemonicParsing="false" text="Paciente">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Cadastro" />
-                  <MenuItem mnemonicParsing="false" text="Listar" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Consulta">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Novo" />
-                  <MenuItem mnemonicParsing="false" text="Listar" />
-                  <MenuItem mnemonicParsing="false" text="Cancelar" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Serviços">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Listar" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Historico">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Listar" />
-                  <MenuItem mnemonicParsing="false" text="Relatorio" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Logout">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Mudar" />
-                  <MenuItem mnemonicParsing="false" text="Sair" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
-   </top>
-   <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+<HBox prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="235.0">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="235.0">
+            <Pane layoutX="18.0" layoutY="47.0" prefHeight="242.0" prefWidth="200.0">
                <children>
-                  <Pane layoutX="18.0" layoutY="47.0" prefHeight="242.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="63.0" layoutY="14.0" text="Serviços">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <ListView layoutX="30.0" layoutY="63.0" prefHeight="116.0" prefWidth="139.0" />
-                        <Label layoutX="61.0" layoutY="39.0" text="Disponiveis">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="79.0" layoutY="190.0" mnemonicParsing="false" text="Ver">
-                           <padding>
-                              <Insets bottom="2.0" left="10.0" right="10.0" top="2.0" />
-                           </padding>
-                        </Button>
-                     </children>
-                  </Pane>
+                  <Label layoutX="63.0" layoutY="14.0" text="Serviços">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView layoutX="30.0" layoutY="63.0" prefHeight="116.0" prefWidth="139.0" />
+                  <Label layoutX="61.0" layoutY="39.0" text="Disponiveis">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="79.0" layoutY="190.0" mnemonicParsing="false" text="Ver">
+                     <padding>
+                        <Insets bottom="2.0" left="10.0" right="10.0" top="2.0" />
+                     </padding>
+                  </Button>
                </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="235.0">
-               <children>
-                  <Pane layoutX="18.0" layoutY="47.0" prefHeight="242.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="15.0" layoutY="39.0" prefWidth="170.0" text="Ao painel do atendente voce tera acesso a funcionalidades essenciais que todo atendente aqui na clinica deve possuir" textAlignment="CENTER" wrapText="true" />
-                        <Label layoutX="15.0" layoutY="143.0" prefWidth="170.0" text="Voce pode acessar as funcionalidades pelo menu!" textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="52.0" layoutY="14.0" prefHeight="25.0" prefWidth="97.0" text="Bem-vindo" textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children></Pane>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="235.0">
-               <children>
-                  <Pane layoutX="18.0" layoutY="47.0" prefHeight="242.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="41.0" layoutY="14.0" text="Atendimento">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="15.0" layoutY="39.0" prefWidth="170.0" text="De segunda a sexta fechamos aos feriados" textAlignment="CENTER" wrapText="true" />
-                        <Label layoutX="61.0" layoutY="137.0" text="Horarios">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="15.0" layoutY="162.0" prefWidth="170.0" text="Horario de funcionamento das 8:00 as 18:00" textAlignment="CENTER" wrapText="true" />
-                     </children></Pane>
-               </children>
-            </AnchorPane>
+            </Pane>
          </children>
-      </HBox>
-   </center>
-</BorderPane>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="235.0">
+         <children>
+            <Pane layoutX="18.0" layoutY="47.0" prefHeight="242.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="15.0" layoutY="39.0" prefWidth="170.0" text="Ao painel do atendente voce tera acesso a funcionalidades essenciais que todo atendente aqui na clinica deve possuir" textAlignment="CENTER" wrapText="true" />
+                  <Label layoutX="15.0" layoutY="143.0" prefWidth="170.0" text="Voce pode acessar as funcionalidades pelo menu!" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="52.0" layoutY="14.0" prefHeight="25.0" prefWidth="97.0" text="Bem-vindo" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="235.0">
+         <children>
+            <Pane layoutX="18.0" layoutY="47.0" prefHeight="242.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="41.0" layoutY="14.0" text="Atendimento">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="39.0" prefWidth="170.0" text="De segunda a sexta fechamos aos feriados" textAlignment="CENTER" wrapText="true" />
+                  <Label layoutX="61.0" layoutY="137.0" text="Horarios">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="162.0" prefWidth="170.0" text="Horario de funcionamento das 8:00 as 18:00" textAlignment="CENTER" wrapText="true" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

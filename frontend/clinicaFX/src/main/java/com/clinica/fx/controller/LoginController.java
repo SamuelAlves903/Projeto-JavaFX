@@ -29,7 +29,7 @@ public class LoginController {
         try{
             if (service.login(username.getText(), password.getText())) {
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/atendente/dashboard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/atendente/layout_atendente.fxml"));
 
                 Scene novaScene = new Scene(loader.load());
 
