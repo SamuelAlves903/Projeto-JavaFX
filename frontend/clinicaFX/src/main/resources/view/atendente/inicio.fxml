@@ -13,7 +13,7 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="235.0">
          <children>
-            <Pane layoutX="18.0" layoutY="47.0" prefHeight="242.0" prefWidth="200.0">
+            <Pane layoutX="9.0" layoutY="24.0" prefHeight="242.0" prefWidth="200.0">
                <children>
                   <Label layoutX="63.0" layoutY="14.0" text="Serviços">
                      <font>
@@ -37,7 +37,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="235.0">
          <children>
-            <Pane layoutX="18.0" layoutY="47.0" prefHeight="242.0" prefWidth="200.0">
+            <Pane layoutX="9.0" layoutY="24.0" prefHeight="242.0" prefWidth="200.0">
                <children>
                   <Label layoutX="15.0" layoutY="39.0" prefWidth="170.0" text="Ao painel do atendente voce tera acesso a funcionalidades essenciais que todo atendente aqui na clinica deve possuir" textAlignment="CENTER" wrapText="true" />
                   <Label layoutX="15.0" layoutY="143.0" prefWidth="170.0" text="Voce pode acessar as funcionalidades pelo menu!" textAlignment="CENTER" wrapText="true">
@@ -56,7 +56,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="235.0">
          <children>
-            <Pane layoutX="18.0" layoutY="47.0" prefHeight="242.0" prefWidth="200.0">
+            <Pane layoutX="9.0" layoutY="24.0" prefHeight="242.0" prefWidth="200.0">
                <children>
                   <Label layoutX="41.0" layoutY="14.0" text="Atendimento">
                      <font>
@@ -64,12 +64,18 @@
                      </font>
                   </Label>
                   <Label layoutX="15.0" layoutY="39.0" prefWidth="170.0" text="De segunda a sexta fechamos aos feriados" textAlignment="CENTER" wrapText="true" />
-                  <Label layoutX="61.0" layoutY="137.0" text="Horarios">
+                  <Label layoutX="61.0" layoutY="85.0" text="Horarios">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="15.0" layoutY="162.0" prefWidth="170.0" text="Horario de funcionamento das 8:00 as 18:00" textAlignment="CENTER" wrapText="true" />
+                  <Label layoutX="15.0" layoutY="110.0" prefWidth="170.0" text="Horario de funcionamento das 8:00 as 18:00" textAlignment="CENTER" wrapText="true" />
+                  <Label layoutX="58.0" layoutY="161.0" text="Endereço">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="186.0" prefWidth="170.0" text="Rua Aurea  -   Nr° 1810 Zona I" textAlignment="CENTER" wrapText="true" />
                </children>
             </Pane>
          </children>
