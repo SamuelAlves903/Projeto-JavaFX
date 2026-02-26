@@ -1,9 +1,10 @@
 package com.clinica.fx.controller;
 
+import com.clinica.fx.util.LoadeScreen;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -12,18 +13,41 @@ public class AtendenteLayoutController {
     @FXML
     private ScrollPane scrollPane;
 
+    @FXML
+    private Button btnSair;
+
     public void initialize(){
-        carregarTela("/view/atendente/inicio.fxml");
+
+        try {
+            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/inicio.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private void carregarTela(String caminho){
+    @FXML
+    public void carregarListaPaciente(){
+        try{
+            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/lista_paciente.fxml"));
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void carregarTelaCadastroPaciente(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(caminho));
-            Parent root = loader.load();
-            scrollPane.setContent(root);
+            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/cadastro_paciente.fxml"));
         }
-        catch (IOException e) {
-            e.printStackTrace();
+        catch (IOException e){
+            throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    public void sair(){
+        Stage stage = (Stage) btnSair.getScene().getWindow();
+        stage.close();
     }
 }

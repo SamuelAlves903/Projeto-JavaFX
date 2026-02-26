@@ -14,7 +14,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
 
         Scene scene = new Scene(loader.load());
-
+        scene.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
         stage.setTitle("Clinica FX");
         stage.setScene(scene);
         stage.show();
