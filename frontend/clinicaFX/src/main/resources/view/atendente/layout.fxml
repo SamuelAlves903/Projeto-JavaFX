@@ -23,15 +23,14 @@
                <menus>
                   <Menu mnemonicParsing="false" text="Paciente">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#carregarTelaCadastroPaciente" text="Cadastro" />
+                        <MenuItem mnemonicParsing="false" onAction="#carregarCadastroPaciente" text="Cadastro" />
                         <MenuItem mnemonicParsing="false" onAction="#carregarListaPaciente" text="Listar" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Consulta">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Novo" />
-                        <MenuItem mnemonicParsing="false" text="Listar" />
-                        <MenuItem mnemonicParsing="false" text="Cancelar" />
+                        <MenuItem mnemonicParsing="false" onAction="#carregarAgendarConsulta" text="Agendar" />
+                        <MenuItem mnemonicParsing="false" onAction="#carregarListaConsulta" text="Listar" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Serviços">

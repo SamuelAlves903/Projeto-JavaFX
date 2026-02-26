@@ -36,9 +36,29 @@ public class AtendenteLayoutController {
     }
 
     @FXML
-    public void carregarTelaCadastroPaciente(){
+    public void carregarCadastroPaciente(){
         try {
             scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/cadastro_paciente.fxml"));
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void carregarAgendarConsulta(){
+        try {
+            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/agendar_consulta.fxml"));
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void carregarListaConsulta(){
+        try {
+            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/lista_consulta.fxml"));
         }
         catch (IOException e){
             throw new RuntimeException(e);
