@@ -66,6 +66,16 @@ public class AtendenteLayoutController {
     }
 
     @FXML
+    public void carregarListaServico(){
+        try {
+            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/lista_servico.fxml"));
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     public void sair(){
         Stage stage = (Stage) btnSair.getScene().getWindow();
         stage.close();
