@@ -76,6 +76,46 @@ public class AtendenteLayoutController {
     }
 
     @FXML
+    public void carregarPacienteHistorico(){
+        try {
+            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/paciente_historico.fxml"));
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void carregarConsultaHistorico(){
+        try {
+            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/consulta_historico.fxml"));
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void carregarServicoHistorico(){
+        try {
+            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/servico_historico.fxml"));
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void carregarRelatorioHistorico(){
+        try {
+            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/relatorio_historico.fxml"));
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     public void sair(){
         Stage stage = (Stage) btnSair.getScene().getWindow();
         stage.close();

@@ -40,8 +40,10 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="Historico">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Listar" />
-                        <MenuItem mnemonicParsing="false" text="Relatorio" />
+                        <MenuItem mnemonicParsing="false" onAction="#carregarPacienteHistorico" text="Paciente" />
+                        <MenuItem mnemonicParsing="false" onAction="#carregarConsultaHistorico" text="Consulta" />
+                        <MenuItem mnemonicParsing="false" onAction="#carregarServicoHistorico" text="Serviços" />
+                        <MenuItem mnemonicParsing="false" onAction="#carregarRelatorioHistorico" text="Relatorio" />
                      </items>
                   </Menu>
                </menus>
