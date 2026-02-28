@@ -1,4 +1,4 @@
-package com.clinica.fx.controller;
+package com.clinica.fx.controller.atendente;
 
 import com.clinica.fx.util.LoadeScreen;
 import javafx.fxml.FXML;
