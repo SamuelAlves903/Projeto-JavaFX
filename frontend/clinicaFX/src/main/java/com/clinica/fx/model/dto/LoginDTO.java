@@ -1,4 +1,6 @@
 package com.clinica.fx.model.dto;
 
-public class LoginDTO {
-}
+public record LoginDTO(
+        String email,
+        String senha
+        ) {}
