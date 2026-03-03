@@ -6,5 +6,5 @@ public record ServicoDTO(
         Long id,
         String nome,
         BigDecimal preco,
-        String especialidade
+        String descricao
         ) {}

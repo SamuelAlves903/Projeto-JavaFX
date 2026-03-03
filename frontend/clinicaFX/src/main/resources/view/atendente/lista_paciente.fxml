@@ -5,16 +5,19 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clinica.fx.controller.atendente.AtendenteListaPacienteController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1018.0" spacing="10.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clinica.fx.controller.atendente.AtendenteListaPacienteController">
    <children>
       <TableView fx:id="pacienteDTOTableView" prefHeight="200.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
          <columns>
             <TableColumn fx:id="idPaciente" prefWidth="36.0" text="ID" />
-            <TableColumn fx:id="colNomePaciente" prefWidth="79.5" text="Nome" />
-            <TableColumn fx:id="colEmailPaciente" prefWidth="96.5" text="Email" />
-            <TableColumn fx:id="colCpfPaciente" prefWidth="120.0" text="CPF" />
-            <TableColumn fx:id="colTelPaciente" prefWidth="127.0" text="Telefone" />
-            <TableColumn fx:id="colCepPaciente" prefWidth="140.0" text="CEP" />
+            <TableColumn fx:id="colNomePaciente" prefWidth="142.0" text="Nome" />
+            <TableColumn fx:id="colGeneroPaciente" prefWidth="100.5" text="Genero" />
+            <TableColumn fx:id="colCpfPaciente" prefWidth="108.5" text="CPF" />
+            <TableColumn fx:id="colTelPaciente" prefWidth="120.0" text="Telefone" />
+            <TableColumn fx:id="colEmailPaciente" prefWidth="173.0" text="Email" />
+            <TableColumn fx:id="colCepPaciente" prefWidth="108.5" text="CEP" />
+            <TableColumn fx:id="colCidadePaciente" prefWidth="139.0" text="Cidade" />
+            <TableColumn fx:id="colUfPaciente" prefWidth="74.5" text="UF" />
          </columns>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

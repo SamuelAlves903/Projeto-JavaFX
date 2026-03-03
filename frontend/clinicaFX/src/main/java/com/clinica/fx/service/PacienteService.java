@@ -12,8 +12,12 @@ public class PacienteService {
         return List.of(new PacienteDTO(1L, "Samuel", LocalDate.of(2001, 5, 15), Genero.MASCULINO, "012529202921", "44984593988", "alves123@gmail.com", "87507647", "João", "Joana Plats", "1233", "pimba", "Umuarama", "PR"));
     }
 
-    public void  adicionarPaciente(PacienteDTO dto){
-        System.out.println("Paciente adicionado com sucesso: " + dto.toString());
+    public List<PacienteDTO> buscarPaciente(String dado){
+        return List.of(new PacienteDTO(1L, "Samuel", LocalDate.of(2001, 5, 15), Genero.MASCULINO, "012529202921", "44984593988", "alves123@gmail.com", "87507647", "João", "Joana Plats", "1233", "pimba", "Umuarama", "PR"));
+    }
+
+    public void  criarPaciente(PacienteDTO dto){
+        System.out.println("Paciente criado com sucesso: " + dto.toString());
     }
 
     public void editarPaciente(PacienteDTO dto){

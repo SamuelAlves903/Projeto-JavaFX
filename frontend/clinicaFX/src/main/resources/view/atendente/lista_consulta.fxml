@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clinica.fx.controller.atendente.AtendenteListaConsultaController">
    <children>
       <Label text="Lista de Consultas Agendadas">
@@ -18,14 +17,14 @@
             <Insets top="10.0" />
          </VBox.margin>
       </Label>
-      <TableView prefHeight="200.0" prefWidth="576.0" VBox.vgrow="ALWAYS">
+      <TableView fx:id="listaConsulta" prefHeight="200.0" prefWidth="576.0" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn prefWidth="48.0" text="ID" />
-          <TableColumn prefWidth="102.0" text="Paciente" />
-            <TableColumn prefWidth="102.0" text="Serviço" />
-            <TableColumn prefWidth="97.0" text="Medico" />
-            <TableColumn prefWidth="85.0" text="Data" />
-            <TableColumn prefWidth="77.5" text="Horario" />
+          <TableColumn fx:id="idAgendamento" prefWidth="48.0" text="ID" />
+          <TableColumn fx:id="paciente" prefWidth="102.0" text="Paciente" />
+            <TableColumn fx:id="medico" prefWidth="97.0" text="Medico" />
+            <TableColumn fx:id="servico" prefWidth="102.0" text="Serviço" />
+            <TableColumn fx:id="dataAgendamento" prefWidth="85.0" text="Data" />
+            <TableColumn fx:id="horaAgendamento" prefWidth="77.5" text="Horario" />
             <TableColumn prefWidth="67.5" text="Açoes" />
         </columns>
          <VBox.margin>
