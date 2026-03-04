@@ -1,0 +1,49 @@
+### COMPILAÇÃO E BUILD (Java/Maven/Gradle/Node) ###
+target/
+**/target/
+build/
+**/build/
+out/
+dist/
+bin/
+.kotlin/
+*.class
+*.jar
+*.war
+*.ear
+
+### MAVEN WRAPPER ###
+.mvn/wrapper/maven-wrapper.jar
+
+### INTELLIJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+### ECLIPSE / STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+### NETBEANS ###
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+### VS CODE ###
+.vscode/
+
+### DOCUMENTAÇÃO E LOGS ###
+HELP.md
+*.log
+
+### SISTEMA OPERACIONAL ###
+.DS_Store
+Thumbs.db
