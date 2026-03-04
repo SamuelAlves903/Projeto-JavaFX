@@ -1,0 +1,7 @@
+com/clinica/fx/model/dto/LoginDTO.class
+com/clinica/fx/model/dto/ServicoDTO.class
+module-info.class
+com/clinica/fx/model/dto/PacienteDTO.class
+com/clinica/fx/model/enums/Genero.class
+com/clinica/fx/model/dto/MedicoDTO.class
+com/clinica/fx/model/dto/AgendamentoDTO.class

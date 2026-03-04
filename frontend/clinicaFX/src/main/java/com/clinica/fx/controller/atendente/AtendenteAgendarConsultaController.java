@@ -2,7 +2,6 @@ package com.clinica.fx.controller.atendente;
 
 import com.clinica.fx.model.dto.PacienteDTO;
 import com.clinica.fx.model.enums.Genero;
-import com.clinica.fx.service.AgendamentoService;
 import com.clinica.fx.service.PacienteService;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
