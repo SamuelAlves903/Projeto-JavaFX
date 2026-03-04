@@ -1,10 +1,10 @@
 package com.clinica.fx.service;
 
-import com.clinica.fx.model.dto.AgendamentoDTO;
-import com.clinica.fx.model.dto.MedicoDTO;
-import com.clinica.fx.model.dto.PacienteDTO;
-import com.clinica.fx.model.dto.ServicoDTO;
-import com.clinica.fx.model.enums.Genero;
+import com.clinica.fx.dto.AgendamentoDTO;
+import com.clinica.fx.dto.MedicoDTO;
+import com.clinica.fx.dto.PacienteDTO;
+import com.clinica.fx.dto.ServicoDTO;
+import com.clinica.fx.enums.Genero;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

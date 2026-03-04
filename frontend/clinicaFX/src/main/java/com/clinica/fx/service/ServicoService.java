@@ -1,6 +1,6 @@
 package com.clinica.fx.service;
 
-import com.clinica.fx.model.dto.ServicoDTO;
+import com.clinica.fx.dto.ServicoDTO;
 
 import java.math.BigDecimal;
 import java.util.List;

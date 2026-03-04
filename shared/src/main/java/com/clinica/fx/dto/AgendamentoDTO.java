@@ -1,4 +1,4 @@
-package com.clinica.fx.model.dto;
+package com.clinica.fx.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

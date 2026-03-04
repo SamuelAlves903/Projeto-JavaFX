@@ -1,4 +1,4 @@
-package com.clinica.fx.model.enums;
+package com.clinica.fx.enums;
 
 public enum Genero {
     MASCULINO,

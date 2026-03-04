@@ -1,9 +1,8 @@
 package com.clinica.fx.controller.atendente;
 
-import com.clinica.fx.model.dto.PacienteDTO;
-import com.clinica.fx.model.enums.Genero;
+import com.clinica.fx.dto.PacienteDTO;
+import com.clinica.fx.enums.Genero;
 import com.clinica.fx.service.PacienteService;
-import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -11,10 +10,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-
-import java.time.LocalDate;
-import java.util.List;
 
 public class AtendenteListaPacienteController {
 

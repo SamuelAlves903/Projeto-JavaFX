@@ -1,7 +1,7 @@
 package com.clinica.fx.service;
 
-import com.clinica.fx.model.dto.PacienteDTO;
-import com.clinica.fx.model.enums.Genero;
+import com.clinica.fx.dto.PacienteDTO;
+import com.clinica.fx.enums.Genero;
 
 import java.time.LocalDate;
 import java.util.List;

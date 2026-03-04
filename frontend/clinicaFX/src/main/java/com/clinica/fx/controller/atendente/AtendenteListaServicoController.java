@@ -1,8 +1,6 @@
 package com.clinica.fx.controller.atendente;
 
-import com.clinica.fx.model.dto.PacienteDTO;
-import com.clinica.fx.model.dto.ServicoDTO;
-import com.clinica.fx.service.PacienteService;
+import com.clinica.fx.dto.ServicoDTO;
 import com.clinica.fx.service.ServicoService;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;

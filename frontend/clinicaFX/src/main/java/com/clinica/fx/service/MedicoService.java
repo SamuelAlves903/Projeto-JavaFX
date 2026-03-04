@@ -1,6 +1,6 @@
 package com.clinica.fx.service;
 
-import com.clinica.fx.model.dto.MedicoDTO;
+import com.clinica.fx.dto.MedicoDTO;
 
 import java.time.LocalDate;
 import java.util.List;

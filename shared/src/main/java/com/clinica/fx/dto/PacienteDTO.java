@@ -1,6 +1,6 @@
-package com.clinica.fx.model.dto;
+package com.clinica.fx.dto;
 
-import com.clinica.fx.model.enums.Genero;
+import com.clinica.fx.enums.Genero;
 
 import java.time.LocalDate;
 

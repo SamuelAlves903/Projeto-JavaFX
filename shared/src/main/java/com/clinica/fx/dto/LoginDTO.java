@@ -1,4 +1,4 @@
-package com.clinica.fx.model.dto;
+package com.clinica.fx.dto;
 
 public record LoginDTO(
         String email,
