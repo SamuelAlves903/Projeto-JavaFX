@@ -47,3 +47,6 @@ HELP.md
 ### SISTEMA OPERACIONAL ###
 .DS_Store
 Thumbs.db
+
+# Ignorar configurações sensíveis do backend
+backend/src/main/resources/application.properties
