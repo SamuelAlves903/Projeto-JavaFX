@@ -4,7 +4,7 @@ import com.clinica.fx.enums.Genero;
 
 import java.time.LocalDate;
 
-public record PacienteDTO (
+public record PacienteCadastroDTO(
         Long id,
         String nome,
         LocalDate dataNascimento,

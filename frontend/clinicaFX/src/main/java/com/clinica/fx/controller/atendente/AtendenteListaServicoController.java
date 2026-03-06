@@ -1,6 +1,6 @@
 package com.clinica.fx.controller.atendente;
 
-import com.clinica.fx.dto.ServicoDTO;
+import com.clinica.fx.dto.ServicoListarDTO;
 import com.clinica.fx.service.ServicoService;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -17,19 +17,19 @@ public class AtendenteListaServicoController {
     private ServicoService servicoService = new ServicoService();
 
     @FXML
-    private TableView<ServicoDTO> tableViewServico;
+    private TableView<ServicoListarDTO> tableViewServico;
 
     @FXML
-    private TableColumn<ServicoDTO, Long> idServico;
+    private TableColumn<ServicoListarDTO, Long> idServico;
 
     @FXML
-    private TableColumn<ServicoDTO, String> nomeServico;
+    private TableColumn<ServicoListarDTO, String> nomeServico;
 
     @FXML
-    private TableColumn<ServicoDTO, BigDecimal> valorServico;
+    private TableColumn<ServicoListarDTO, BigDecimal> valorServico;
 
     @FXML
-    private TableColumn<ServicoDTO, String> descricaoServico;
+    private TableColumn<ServicoListarDTO, String> descricaoServico;
 
     public void initialize() {
         idServico.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().id()));
@@ -37,7 +37,7 @@ public class AtendenteListaServicoController {
         descricaoServico.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descricao()));
         valorServico.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().preco()));
 
-        ObservableList<ServicoDTO> list = FXCollections.observableArrayList(
+        ObservableList<ServicoListarDTO> list = FXCollections.observableArrayList(
                 servicoService.listarServico()
         );
 

@@ -3,11 +3,11 @@ package com.clinica.fx.dto;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public record AgendamentoDTO(
+public record ConsultaAgendarDTO(
         Long id,
-        PacienteDTO paciente,
+        PacienteCadastroDTO paciente,
         MedicoDTO medico,
-        ServicoDTO servico,
+        ServicoListarDTO servico,
         LocalDate data,
         LocalDateTime hora
         ) {}

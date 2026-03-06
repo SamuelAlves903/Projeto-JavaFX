@@ -1,6 +1,6 @@
 package com.clinica.fx.controller.atendente;
 
-import com.clinica.fx.dto.PacienteDTO;
+import com.clinica.fx.dto.PacienteCadastroDTO;
 import com.clinica.fx.enums.Genero;
 import com.clinica.fx.service.PacienteService;
 import javafx.fxml.FXML;
@@ -60,7 +60,7 @@ public class AtendenteCadastroPacienteController {
     @FXML
     public void cadastrarPaciente(){
 
-        pacienteService.criarPaciente(new PacienteDTO(1L,
+        pacienteService.criarPaciente(new PacienteCadastroDTO(1L,
                 nomePaciente.getText(),
                 LocalDate.of(dataNascimentoPaciente.getValue().getYear(), dataNascimentoPaciente.getValue().getMonth(), dataNascimentoPaciente.getValue().getDayOfMonth()),
                 Genero.valueOf(generoPaciente.getValue()),

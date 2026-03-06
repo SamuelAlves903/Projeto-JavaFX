@@ -2,7 +2,7 @@ package com.clinica.fx.dto;
 
 import java.math.BigDecimal;
 
-public record ServicoDTO(
+public record ServicoListarDTO(
         Long id,
         String nome,
         BigDecimal preco,
