@@ -1,6 +1,6 @@
 package com.clinica.fx.dto;
 
 public record LoginDTO(
-        String email,
-        String senha
+        String login,
+        String password
         ) {}
