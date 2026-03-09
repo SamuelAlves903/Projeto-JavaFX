@@ -32,8 +32,10 @@ public class AuthApi {
 
         var auth =  authenticationManager.authenticate(usernamePassword);
 
+        var usuario = (Usuario) auth.getPrincipal();
+
         var token = tokenService.generateToken((Usuario) Objects.requireNonNull(auth.getPrincipal()));
 
-        return ResponseEntity.ok(new LoginResponseDTO(token));
+        return ResponseEntity.ok(new LoginResponseDTO(token, usuario.getLogin(), usuario.getCargo()));
     }
 }

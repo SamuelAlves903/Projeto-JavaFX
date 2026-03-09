@@ -18,7 +18,7 @@ public class LoginController {
     private LoginService service = new LoginService();
 
     @FXML
-    private TextField username;
+    private TextField login;
 
     @FXML
     private PasswordField password;
@@ -27,7 +27,7 @@ public class LoginController {
     public void onButtonLogin(ActionEvent event) {
 
         try{
-            if (service.login(username.getText(), password.getText())) {
+            if (service.login(login.getText(), password.getText())) {
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/atendente/layout.fxml"));
 

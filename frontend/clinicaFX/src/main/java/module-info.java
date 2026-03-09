@@ -4,6 +4,8 @@ module clinicaFX {
     requires javafx.fxml;
     requires javafx.base;
     requires shared;
+    requires java.net.http;
+    requires com.fasterxml.jackson.databind;
 
     exports com.clinica.fx;
     opens com.clinica.fx.controller to javafx.fxml;
