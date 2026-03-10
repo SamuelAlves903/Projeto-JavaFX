@@ -4,7 +4,6 @@ import com.clinica.fx.backend.model.Usuario;
 import com.clinica.fx.backend.security.TokenService;
 import com.clinica.fx.dto.LoginDTO;
 import com.clinica.fx.dto.LoginResponseDTO;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,7 +26,7 @@ public class AuthApi {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid LoginDTO loginDTO) {
+    public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginDTO loginDTO) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(loginDTO.login(), loginDTO.password());
 
         var auth =  authenticationManager.authenticate(usernamePassword);

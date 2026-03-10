@@ -26,12 +26,12 @@ public class LoginService {
             data.put("login", login);
             data.put("password", password);
 
-            String jsonRequst = objectMapper.writeValueAsString(data);
+            String jsonRequest = objectMapper.writeValueAsString(data);
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(URL_LOGIN))
                     .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString(jsonRequst))
+                    .POST(HttpRequest.BodyPublishers.ofString(jsonRequest))
                     .build();
 
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());

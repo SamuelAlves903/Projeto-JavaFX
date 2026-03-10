@@ -4,7 +4,10 @@ import com.clinica.fx.enums.Genero;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -13,6 +16,8 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Paciente {
 
     @Id
@@ -22,10 +27,10 @@ public class Paciente {
     @NotBlank
     private String nome;
 
-    @NotBlank
+    @NotNull
     private LocalDate dataNascimento;
 
-    @NotBlank
+    @NotNull
     private Genero genero;
 
     @CPF
@@ -62,11 +67,11 @@ public class Paciente {
     @NotBlank
     private String uf;
 
-    @NotBlank
+    @NotNull
     private LocalDate dataCriacao;
 
     private LocalDate dataDesativacao;
 
-    @NotBlank
+    @NotNull
     private Boolean ativo;
 }

@@ -10,6 +10,7 @@ public record PacienteListarDTO(
         String cpf,
         String telefone,
         String email,
+        String cep,
         String cidade,
         String uf
 ) {}

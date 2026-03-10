@@ -3,7 +3,9 @@ package com.clinica.fx.controller.atendente;
 import com.clinica.fx.dto.PacienteCadastroDTO;
 import com.clinica.fx.enums.Genero;
 import com.clinica.fx.service.PacienteService;
+import com.clinica.fx.util.Alerts;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -60,19 +62,24 @@ public class AtendenteCadastroPacienteController {
     @FXML
     public void cadastrarPaciente(){
 
-        pacienteService.criarPaciente(new PacienteCadastroDTO(1L,
-                nomePaciente.getText(),
-                LocalDate.of(dataNascimentoPaciente.getValue().getYear(), dataNascimentoPaciente.getValue().getMonth(), dataNascimentoPaciente.getValue().getDayOfMonth()),
-                Genero.valueOf(generoPaciente.getValue()),
-                cpfPaciente.getText(),
-                telefonePaciente.getText(),
-                emailPaciente.getText(),
-                cepPaciente.getText(),
-                enderecoPaciente.getText(),
-                bairroPaciente.getText(),
-                numeroPaciente.getText(),
-                complementoPaciente.getText(),
-                cidadePaciente.getText(),
-                ufPaciente.getText()));
+        try {
+            pacienteService.criarPaciente(new PacienteCadastroDTO(
+                    nomePaciente.getText(),
+                    LocalDate.of(dataNascimentoPaciente.getValue().getYear(), dataNascimentoPaciente.getValue().getMonth(), dataNascimentoPaciente.getValue().getDayOfMonth()),
+                    Genero.valueOf(generoPaciente.getValue()),
+                    cpfPaciente.getText(),
+                    telefonePaciente.getText(),
+                    emailPaciente.getText(),
+                    cepPaciente.getText(),
+                    enderecoPaciente.getText(),
+                    bairroPaciente.getText(),
+                    numeroPaciente.getText(),
+                    complementoPaciente.getText(),
+                    cidadePaciente.getText(),
+                    ufPaciente.getText()));
+        }
+        catch (Exception e){
+            Alerts.erro("Erro ao cadastrar Paciente: " +  e.getMessage());
+        }
     }
 }
