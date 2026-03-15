@@ -48,8 +48,35 @@ public class PacienteService {
 
     }
 
-    public List<PacienteCadastroDTO> buscarPaciente(String dado){
-        return List.of(new PacienteCadastroDTO("Samuel", LocalDate.of(2001, 5, 15), Genero.MASCULINO, "012529202921", "44984593988", "alves123@gmail.com", "87507647", "João", "Joana Plats", "1233", "pimba", "Umuarama", "PR"));
+    public List<PacienteListarDTO> buscarPaciente(String nome){
+
+        try {
+            Map<String, String> map = new HashMap<>();
+            map.put("nome", nome);
+
+            String json = objectMapper.writeValueAsString(map);
+
+            HttpRequest httpRequest = HttpRequest.newBuilder()
+                    .uri(URI.create(URL_PACIENTE + "/buscar"))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + SessaoUsuario.getToken())
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+
+            HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+            if (httpResponse.statusCode() == 200) {
+
+                System.out.println("JSON recebido: " + httpResponse.body());
+                return objectMapper.readValue(httpResponse.body(), new TypeReference<List<PacienteListarDTO>>(){});
+            }
+            return List.of();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return List.of();
+
     }
 
     public String criarPaciente(PacienteCadastroDTO dto) throws IOException, InterruptedException {

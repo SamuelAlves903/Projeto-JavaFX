@@ -3,7 +3,10 @@ package com.clinica.fx.backend.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -12,6 +15,8 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Medico {
 
     @Id
@@ -45,16 +50,16 @@ public class Medico {
     @NotBlank
     private String especialidade;
 
-    @NotBlank
+    @NotNull
     private LocalDate inicioContratacao;
 
     private LocalDate fimContratacao;
 
 
-    @NotBlank
+    @NotNull
     private Boolean ativo;
 
 
     @ManyToOne
-    private Servico servicoId;
+    private Servico servico;
 }

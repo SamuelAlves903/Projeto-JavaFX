@@ -16,13 +16,19 @@ public class AtendenteLayoutController {
     @FXML
     private Button btnSair;
 
-    public void initialize(){
+    private static AtendenteLayoutController instance;
 
+    public void initialize() {
+        instance = this;
         try {
             scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/inicio.fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static AtendenteLayoutController getInstance() {
+        return instance;
     }
 
     @FXML

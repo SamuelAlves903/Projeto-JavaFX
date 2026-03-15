@@ -38,6 +38,26 @@ public class PacienteService {
         return pacienteListarDTOs;
     }
 
+    public List<PacienteListarDTO> buscarPaciente(String nome){
+
+        List<Paciente> pacientes = pacienteRepository.findByNomeContainingIgnoreCase(nome);
+        List<PacienteListarDTO> pacienteListarDTOs = new ArrayList<>();
+        for (Paciente paciente : pacientes) {
+
+            pacienteListarDTOs.add(new PacienteListarDTO(
+                    paciente.getId(),
+                    paciente.getNome(),
+                    paciente.getGenero(),
+                    paciente.getCpf(),
+                    paciente.getTelefone(),
+                    paciente.getEmail(),
+                    paciente.getCep(),
+                    paciente.getCidade(),
+                    paciente.getUf()));
+        }
+        return pacienteListarDTOs;
+    }
+
     public void salvarPaciente(PacienteCadastroDTO  pacienteCadastroDTO) {
 
         @Valid Paciente paciente = new Paciente(

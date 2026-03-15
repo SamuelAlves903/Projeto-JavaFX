@@ -1,31 +1,166 @@
 package com.clinica.fx.service;
 
-import com.clinica.fx.dto.ConsultaAgendarDTO;
-import com.clinica.fx.dto.MedicoDTO;
-import com.clinica.fx.dto.PacienteCadastroDTO;
-import com.clinica.fx.dto.ServicoListarDTO;
+import com.clinica.fx.dto.*;
+import com.clinica.fx.enums.Cargo;
 import com.clinica.fx.enums.Genero;
+import com.clinica.fx.util.SessaoUsuario;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.math.BigDecimal;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AgendamentoService {
 
-    public List<ConsultaAgendarDTO> listarAgendamento(){
-        return List.of(new ConsultaAgendarDTO(1L, new PacienteCadastroDTO(1L, "Samuel", LocalDate.of(2001, 5, 15), Genero.MASCULINO, "012529202921", "44984593988", "alves123@gmail.com", "87507647", "João", "Joana Plats", "1233", "pimba", "Umuarama", "PR"), new MedicoDTO(1L, "Samuel", "alves@gmail.com", "012529202921", "???", "???", "Pediatria", LocalDate.of(2025, 12, 12), LocalDate.of(2026, 12, 12), true), new ServicoListarDTO(1L, "pimba", BigDecimal.valueOf(120.0), "???"), LocalDate.now(), LocalDateTime.now()));
+    private final HttpClient httpClient = HttpClient.newHttpClient();
+    private final String URL_AGENDAMENTO = "http://localhost:8080/agendamento";
+    private final ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
+
+    public List<ListarAgendamentoDTO> listarAgendamento(){
+        try{
+
+            HttpRequest httpRequest = HttpRequest.newBuilder()
+                    .uri(URI.create(URL_AGENDAMENTO + "/listar"))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + SessaoUsuario.getToken())
+                    .GET()
+                    .build();
+
+            HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+            if (httpResponse.statusCode() == 200) {
+
+                return objectMapper.readValue(httpResponse.body(), new TypeReference<List<ListarAgendamentoDTO>>(){});
+            }
+
+            return List.of();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return List.of();
+        }
     }
 
-    public void  adicionarAgendamento(ConsultaAgendarDTO dto){
-        System.out.println("Agendamento adicionado com sucesso: " + dto.toString());
+    public List<ConsultaBuscarDTO> buscarServicosConsulta(){
+
+        try{
+
+            HttpRequest httpRequest = HttpRequest.newBuilder()
+                    .uri(URI.create(URL_AGENDAMENTO + "/buscarServicosAgendamento"))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + SessaoUsuario.getToken())
+                    .GET()
+                    .build();
+
+            HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+            if (httpResponse.statusCode() == 200) {
+
+                return objectMapper.readValue(httpResponse.body(), new TypeReference<List<ConsultaBuscarDTO>>(){});
+            }
+
+            return List.of();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return List.of();
+        }
     }
 
-    public void editarAgendamento(ConsultaAgendarDTO dto){
-        System.out.println("Agendamento editado com sucesso: " + dto.toString());
+    public List<ConsultaBuscarDTO> buscarMedicosConsulta(Long id){
+
+        try{
+            String json =  objectMapper.writeValueAsString(id);
+
+            HttpRequest httpRequest = HttpRequest.newBuilder()
+                    .uri(URI.create(URL_AGENDAMENTO + "/buscarMedicosAgendamento"))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + SessaoUsuario.getToken())
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+
+            HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            if (httpResponse.statusCode() == 200) {
+
+                return objectMapper.readValue(httpResponse.body(), new TypeReference<List<ConsultaBuscarDTO>>(){});
+            }
+
+            return List.of();
+        }
+        catch (Exception e){
+            return List.of();
+        }
     }
 
-    public void excluirAgendamento(ConsultaAgendarDTO dto){
-        System.out.println("Agendamento removido com sucesso: " + dto.toString());
+    public List<LocalTime> buscarHorariosDisponiveis(Long idServico, Long idMedico, LocalDate data){
+
+        try {
+
+            Map<String, Object> map = new HashMap<>();
+            map.put("idServico", idServico);
+            map.put("idMedico", idMedico);
+            map.put("data", data.toString());
+
+            String jsonRequest = objectMapper.writeValueAsString(map);
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(URL_AGENDAMENTO + "/buscarHorariosDisponiveis"))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + SessaoUsuario.getToken())
+                    .POST(HttpRequest.BodyPublishers.ofString(jsonRequest))
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() == 200) {
+                return objectMapper.readValue(response.body(), new TypeReference<List<LocalTime>>(){});
+            }
+
+            return List.of();
+        } catch (Exception e) {
+
+            return List.of();
+        }
+    }
+
+    public Boolean  agendarConsulta(ConsultaAgendarDTO dto){
+
+        try {
+            Map<String, String> map = new HashMap<>();
+            map.put("id", null);
+            map.put("pacienteId", dto.pacienteId().toString());
+            map.put("servicoId", dto.servicoId().toString());
+            map.put("medicoId", dto.medicoId().toString());
+            map.put("data", dto.data().toString());
+            map.put("hora", dto.hora().toString());
+
+            String jsonRequest = objectMapper.writeValueAsString(map);
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(URL_AGENDAMENTO + "/agendarConsulta"))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + SessaoUsuario.getToken())
+                    .POST(HttpRequest.BodyPublishers.ofString(jsonRequest))
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            return response.statusCode() == 200;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

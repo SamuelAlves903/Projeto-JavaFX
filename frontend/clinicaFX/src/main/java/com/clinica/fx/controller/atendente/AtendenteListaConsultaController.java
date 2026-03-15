@@ -1,6 +1,7 @@
 package com.clinica.fx.controller.atendente;
 
-import com.clinica.fx.dto.ConsultaAgendarDTO;
+import com.clinica.fx.dto.ListarAgendamentoDTO;
+import com.clinica.fx.dto.ListarAgendamentoDTO;
 import com.clinica.fx.service.AgendamentoService;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -12,42 +13,43 @@ import javafx.scene.control.TableView;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class AtendenteListaConsultaController {
 
     AgendamentoService agendamentoService =  new AgendamentoService();
 
     @FXML
-    private TableView<ConsultaAgendarDTO> listaConsulta;
+    private TableView<ListarAgendamentoDTO> listaConsulta;
 
     @FXML
-    private TableColumn<ConsultaAgendarDTO, Long> idAgendamento;
+    private TableColumn<ListarAgendamentoDTO, Long> idAgendamento;
 
     @FXML
-    private TableColumn<ConsultaAgendarDTO, String> paciente;
+    private TableColumn<ListarAgendamentoDTO, String> paciente;
 
     @FXML
-    private TableColumn<ConsultaAgendarDTO, String> medico;
+    private TableColumn<ListarAgendamentoDTO, String> medico;
 
     @FXML
-    private TableColumn<ConsultaAgendarDTO, String> servico;
+    private TableColumn<ListarAgendamentoDTO, String> servico;
 
     @FXML
-    private TableColumn<ConsultaAgendarDTO, LocalDate> dataAgendamento;
+    private TableColumn<ListarAgendamentoDTO, LocalDate> dataAgendamento;
 
     @FXML
-    private TableColumn<ConsultaAgendarDTO, LocalDateTime> horaAgendamento;
+    private TableColumn<ListarAgendamentoDTO, LocalTime> horaAgendamento;
 
     public void initialize() {
 
         idAgendamento.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().id()));
-        paciente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().paciente().nome()));
-        medico.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().medico().nome()));
-        servico.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().servico().nome()));
+        paciente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nomePaciente()));
+        servico.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nomeServico()));
+        medico.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nomeMedico()));
         dataAgendamento.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().data()));
         horaAgendamento.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().hora()));
 
-        ObservableList<ConsultaAgendarDTO> listaConsultas = FXCollections.observableArrayList(
+        ObservableList<ListarAgendamentoDTO> listaConsultas = FXCollections.observableArrayList(
                 agendamentoService.listarAgendamento()
         );
 

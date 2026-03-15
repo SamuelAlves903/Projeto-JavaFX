@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/paciente")
@@ -29,6 +30,13 @@ public class PacienteApi {
     public ResponseEntity<List<PacienteListarDTO>> listarPaciente() {
 
         return ResponseEntity.ok(pacienteService.listarPaciente());
+    }
+
+    @PostMapping("/buscar")
+    public ResponseEntity<List<PacienteListarDTO>> buscarPaciente(@RequestBody Map<String, String> map) {
+
+        String nome = map.get("nome");
+        return ResponseEntity.ok(pacienteService.buscarPaciente(nome));
     }
 
     @PostMapping("/salvar")
