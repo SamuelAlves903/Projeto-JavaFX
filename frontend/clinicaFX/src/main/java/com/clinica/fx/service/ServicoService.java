@@ -1,6 +1,6 @@
 package com.clinica.fx.service;
 
-import com.clinica.fx.dto.ServicoListarDTO;
+import com.clinica.fx.dto.ListarServicoDTO;
 import com.clinica.fx.util.SessaoUsuario;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,7 +16,7 @@ public class ServicoService {
     private String URL_SERVICO = "http://localhost:8080/servico";
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    public List<ServicoListarDTO> listarServico(){
+    public List<ListarServicoDTO> listarServico(){
         try{
 
             HttpRequest httpRequest = HttpRequest.newBuilder()
@@ -29,7 +29,7 @@ public class ServicoService {
             HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 
             if (response.statusCode() == 200) {
-                return objectMapper.readValue(response.body(), new TypeReference<List<ServicoListarDTO>>(){});
+                return objectMapper.readValue(response.body(), new TypeReference<List<ListarServicoDTO>>(){});
             }
             return List.of();
         }
@@ -39,15 +39,15 @@ public class ServicoService {
         }
     }
 
-    public void  adicionarServico(ServicoListarDTO dto){
+    public void  adicionarServico(ListarServicoDTO dto){
         System.out.println("Servico adicionado com sucesso: " + dto.toString());
     }
 
-    public void editarServico(ServicoListarDTO dto){
+    public void editarServico(ListarServicoDTO dto){
         System.out.println("Servico editado com sucesso: " + dto.toString());
     }
 
-    public void excluirServico(ServicoListarDTO dto){
+    public void excluirServico(ListarServicoDTO dto){
         System.out.println("Servico removido com sucesso: " + dto.toString());
     }
 }

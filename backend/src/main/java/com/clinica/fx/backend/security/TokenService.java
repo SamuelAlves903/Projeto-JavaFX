@@ -7,7 +7,6 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.clinica.fx.backend.model.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service; // Adicionado
-
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;

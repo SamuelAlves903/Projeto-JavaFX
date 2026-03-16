@@ -2,7 +2,6 @@ package com.clinica.fx.util;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-
 import java.io.IOException;
 import java.util.Objects;
 

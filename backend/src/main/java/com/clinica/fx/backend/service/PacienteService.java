@@ -2,12 +2,11 @@ package com.clinica.fx.backend.service;
 
 import com.clinica.fx.backend.model.Paciente;
 import com.clinica.fx.backend.repository.PacienteRepository;
-import com.clinica.fx.dto.PacienteCadastroDTO;
-import com.clinica.fx.dto.PacienteListarDTO;
+import com.clinica.fx.dto.CadastroPacienteDTO;
+import com.clinica.fx.dto.ListarPacienteDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,13 +17,13 @@ public class PacienteService {
     @Autowired
     private PacienteRepository pacienteRepository;
 
-    public List<PacienteListarDTO> listarPaciente(){
+    public List<ListarPacienteDTO> listarPaciente(){
 
         List<Paciente> pacientes = pacienteRepository.findAll();
-        List<PacienteListarDTO> pacienteListarDTOs = new ArrayList<>();
+        List<ListarPacienteDTO> pacienteListarDTOs = new ArrayList<>();
         for (Paciente paciente : pacientes) {
 
-            pacienteListarDTOs.add(new PacienteListarDTO(
+            pacienteListarDTOs.add(new ListarPacienteDTO(
                     paciente.getId(),
                     paciente.getNome(),
                     paciente.getGenero(),
@@ -38,13 +37,13 @@ public class PacienteService {
         return pacienteListarDTOs;
     }
 
-    public List<PacienteListarDTO> buscarPaciente(String nome){
+    public List<ListarPacienteDTO> buscarPaciente(String nome){
 
         List<Paciente> pacientes = pacienteRepository.findByNomeContainingIgnoreCase(nome);
-        List<PacienteListarDTO> pacienteListarDTOs = new ArrayList<>();
+        List<ListarPacienteDTO> pacienteListarDTOs = new ArrayList<>();
         for (Paciente paciente : pacientes) {
 
-            pacienteListarDTOs.add(new PacienteListarDTO(
+            pacienteListarDTOs.add(new ListarPacienteDTO(
                     paciente.getId(),
                     paciente.getNome(),
                     paciente.getGenero(),
@@ -58,7 +57,7 @@ public class PacienteService {
         return pacienteListarDTOs;
     }
 
-    public void salvarPaciente(PacienteCadastroDTO  pacienteCadastroDTO) {
+    public void salvarPaciente(CadastroPacienteDTO pacienteCadastroDTO) {
 
         @Valid Paciente paciente = new Paciente(
                 null,

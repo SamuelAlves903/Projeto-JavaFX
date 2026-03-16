@@ -1,10 +1,9 @@
 package com.clinica.fx.dto;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-public record ConsultaAgendarDTO(
+public record AgendarAgendamentoDTO(
         Long id,
         Long pacienteId,
         Long servicoId,

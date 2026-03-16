@@ -1,7 +1,6 @@
 package com.clinica.fx.controller.atendente;
 
 import com.clinica.fx.dto.ListarAgendamentoDTO;
-import com.clinica.fx.dto.ListarAgendamentoDTO;
 import com.clinica.fx.service.AgendamentoService;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -10,9 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class AtendenteListaConsultaController {

@@ -3,9 +3,7 @@ package com.clinica.fx.service;
 import com.clinica.fx.dto.LoginResponseDTO;
 import com.clinica.fx.enums.Cargo;
 import com.clinica.fx.util.SessaoUsuario;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;

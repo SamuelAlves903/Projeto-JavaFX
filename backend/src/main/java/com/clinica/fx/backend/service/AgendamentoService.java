@@ -2,7 +2,6 @@ package com.clinica.fx.backend.service;
 
 import com.clinica.fx.backend.model.Agendamento;
 import com.clinica.fx.backend.model.Medico;
-import com.clinica.fx.backend.model.Paciente;
 import com.clinica.fx.backend.model.Servico;
 import com.clinica.fx.backend.repository.AgendamentoRepository;
 import com.clinica.fx.backend.repository.MedicoRepository;
@@ -12,7 +11,6 @@ import com.clinica.fx.dto.*;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,13 +50,13 @@ public class AgendamentoService {
         return listaAgendamentos;
     }
 
-    public List<ConsultaBuscarDTO> buscarServicosAgendamento(){
+    public List<BuscarDadosAgendamentoDTO> buscarServicosAgendamento(){
 
         List<Servico> servicos = servicoRepository.findAll();
-        List<ConsultaBuscarDTO> listarServicos = new ArrayList<>();
+        List<BuscarDadosAgendamentoDTO> listarServicos = new ArrayList<>();
         for (Servico servico : servicos) {
 
-            listarServicos.add(new ConsultaBuscarDTO(
+            listarServicos.add(new BuscarDadosAgendamentoDTO(
                     servico.getId(),
                     servico.getNome()
             ));
@@ -67,13 +65,13 @@ public class AgendamentoService {
         return listarServicos;
     }
 
-    public List<ConsultaBuscarDTO> buscarMedicoAgendamento(Long medicoId){
+    public List<BuscarDadosAgendamentoDTO> buscarMedicoAgendamento(Long medicoId){
 
         List<Medico> medico = medicoRepository.findByServicoIdAndAtivoTrue(medicoId);
-        List<ConsultaBuscarDTO> listaMedico = new ArrayList<>();
+        List<BuscarDadosAgendamentoDTO> listaMedico = new ArrayList<>();
         for (Medico medicos : medico) {
 
-            listaMedico.add(new ConsultaBuscarDTO(
+            listaMedico.add(new BuscarDadosAgendamentoDTO(
                     medicos.getId(),
                     medicos.getNome()
             ));
@@ -103,7 +101,7 @@ public class AgendamentoService {
         return horariosDisponiveis;
     }
 
-    public Boolean agendarConsulta(ConsultaAgendarDTO dto) {
+    public Boolean agendarConsulta(AgendarAgendamentoDTO dto) {
 
         var paciente = pacienteRepository.findById(dto.pacienteId()).orElseThrow(() -> new EntityNotFoundException("Paciente não encontrado"));
 

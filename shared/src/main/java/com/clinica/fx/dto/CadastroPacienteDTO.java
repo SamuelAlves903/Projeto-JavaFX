@@ -2,15 +2,20 @@ package com.clinica.fx.dto;
 
 import com.clinica.fx.enums.Genero;
 
-public record PacienteListarDTO(
+import java.time.LocalDate;
 
-        Long id,
+public record CadastroPacienteDTO(
         String nome,
+        LocalDate dataNascimento,
         Genero genero,
         String cpf,
         String telefone,
         String email,
         String cep,
+        String endereco,
+        String bairro,
+        String numero,
+        String complemento,
         String cidade,
         String uf
-) {}
+        ) {}

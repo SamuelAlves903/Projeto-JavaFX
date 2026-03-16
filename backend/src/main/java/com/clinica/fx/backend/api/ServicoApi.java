@@ -1,7 +1,7 @@
 package com.clinica.fx.backend.api;
 
 import com.clinica.fx.backend.service.ServicoService;
-import com.clinica.fx.dto.ServicoListarDTO;
+import com.clinica.fx.dto.ListarServicoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class ServicoApi {
     private ServicoService servicoService;
 
     @GetMapping("/listar")
-    public ResponseEntity<List<ServicoListarDTO>> listar(){
+    public ResponseEntity<List<ListarServicoDTO>> listar(){
 
         return ResponseEntity.ok(servicoService.listar());
     }

@@ -1,20 +1,15 @@
 package com.clinica.fx.service;
 
 import com.clinica.fx.dto.*;
-import com.clinica.fx.enums.Cargo;
-import com.clinica.fx.enums.Genero;
 import com.clinica.fx.util.SessaoUsuario;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
-import java.math.BigDecimal;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
@@ -52,7 +47,7 @@ public class AgendamentoService {
         }
     }
 
-    public List<ConsultaBuscarDTO> buscarServicosConsulta(){
+    public List<BuscarDadosAgendamentoDTO> buscarServicosConsulta(){
 
         try{
 
@@ -67,7 +62,7 @@ public class AgendamentoService {
 
             if (httpResponse.statusCode() == 200) {
 
-                return objectMapper.readValue(httpResponse.body(), new TypeReference<List<ConsultaBuscarDTO>>(){});
+                return objectMapper.readValue(httpResponse.body(), new TypeReference<List<BuscarDadosAgendamentoDTO>>(){});
             }
 
             return List.of();
@@ -78,7 +73,7 @@ public class AgendamentoService {
         }
     }
 
-    public List<ConsultaBuscarDTO> buscarMedicosConsulta(Long id){
+    public List<BuscarDadosAgendamentoDTO> buscarMedicosConsulta(Long id){
 
         try{
             String json =  objectMapper.writeValueAsString(id);
@@ -93,7 +88,7 @@ public class AgendamentoService {
             HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             if (httpResponse.statusCode() == 200) {
 
-                return objectMapper.readValue(httpResponse.body(), new TypeReference<List<ConsultaBuscarDTO>>(){});
+                return objectMapper.readValue(httpResponse.body(), new TypeReference<List<BuscarDadosAgendamentoDTO>>(){});
             }
 
             return List.of();
@@ -134,7 +129,7 @@ public class AgendamentoService {
         }
     }
 
-    public Boolean  agendarConsulta(ConsultaAgendarDTO dto){
+    public Boolean  agendarConsulta(AgendarAgendamentoDTO dto){
 
         try {
             Map<String, String> map = new HashMap<>();

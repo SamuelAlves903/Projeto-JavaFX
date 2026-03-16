@@ -1,15 +1,13 @@
 package com.clinica.fx.controller.atendente;
 
-import com.clinica.fx.dto.PacienteCadastroDTO;
+import com.clinica.fx.dto.CadastroPacienteDTO;
 import com.clinica.fx.enums.Genero;
 import com.clinica.fx.service.PacienteService;
 import com.clinica.fx.util.Alerts;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-
 import java.time.LocalDate;
 
 public class AtendenteCadastroPacienteController {
@@ -63,7 +61,7 @@ public class AtendenteCadastroPacienteController {
     public void cadastrarPaciente(){
 
         try {
-            pacienteService.criarPaciente(new PacienteCadastroDTO(
+            pacienteService.criarPaciente(new CadastroPacienteDTO(
                     nomePaciente.getText(),
                     LocalDate.of(dataNascimentoPaciente.getValue().getYear(), dataNascimentoPaciente.getValue().getMonth(), dataNascimentoPaciente.getValue().getDayOfMonth()),
                     Genero.valueOf(generoPaciente.getValue()),

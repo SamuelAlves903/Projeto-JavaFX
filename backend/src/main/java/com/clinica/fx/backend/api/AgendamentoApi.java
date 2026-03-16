@@ -5,7 +5,6 @@ import com.clinica.fx.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalTime;
 import java.util.List;
 
@@ -23,13 +22,13 @@ public class AgendamentoApi {
     }
 
     @GetMapping("/buscarServicosAgendamento")
-    public ResponseEntity<List<ConsultaBuscarDTO>> buscarServicos() {
+    public ResponseEntity<List<BuscarDadosAgendamentoDTO>> buscarServicos() {
 
         return ResponseEntity.ok(agendamentoService.buscarServicosAgendamento());
     }
 
     @PostMapping("/buscarMedicosAgendamento")
-    public ResponseEntity<List<ConsultaBuscarDTO>> buscarMedicos(@RequestBody Long medicoId) {
+    public ResponseEntity<List<BuscarDadosAgendamentoDTO>> buscarMedicos(@RequestBody Long medicoId) {
 
         return ResponseEntity.ok(agendamentoService.buscarMedicoAgendamento(medicoId));
     }
@@ -42,7 +41,7 @@ public class AgendamentoApi {
     }
 
     @PostMapping("/agendarConsulta")
-    public ResponseEntity agendarConsulta(@RequestBody ConsultaAgendarDTO consultaAgendarDTO) {
+    public ResponseEntity agendarConsulta(@RequestBody AgendarAgendamentoDTO consultaAgendarDTO) {
 
         var sucesso = agendamentoService.agendarConsulta(consultaAgendarDTO);
         if (sucesso) {

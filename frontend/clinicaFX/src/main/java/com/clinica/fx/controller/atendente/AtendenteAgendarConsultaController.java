@@ -1,22 +1,18 @@
 package com.clinica.fx.controller.atendente;
 
-import com.clinica.fx.dto.ConsultaAgendarDTO;
-import com.clinica.fx.dto.ConsultaBuscarDTO;
-import com.clinica.fx.dto.PacienteListarDTO;
+import com.clinica.fx.dto.AgendarAgendamentoDTO;
+import com.clinica.fx.dto.BuscarDadosAgendamentoDTO;
+import com.clinica.fx.dto.ListarPacienteDTO;
 import com.clinica.fx.enums.Genero;
 import com.clinica.fx.service.AgendamentoService;
-import com.clinica.fx.service.MedicoService;
 import com.clinica.fx.service.PacienteService;
-import com.clinica.fx.service.ServicoService;
 import com.clinica.fx.util.Alerts;
-import com.clinica.fx.util.LoadeScreen;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.time.LocalTime;
 import java.util.List;
 
@@ -30,46 +26,46 @@ public class AtendenteAgendarConsultaController {
     private TextField dado;
 
     @FXML
-    private TableView<PacienteListarDTO> pacienteDTOTableView;
+    private TableView<ListarPacienteDTO> pacienteDTOTableView;
 
     @FXML
-    private TableColumn<PacienteListarDTO, Long> colIdPaciente;
+    private TableColumn<ListarPacienteDTO, Long> colIdPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colNomePaciente;
+    private TableColumn<ListarPacienteDTO, String> colNomePaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, Genero> colGeneroPaciente;
+    private TableColumn<ListarPacienteDTO, Genero> colGeneroPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colCpfPaciente;
+    private TableColumn<ListarPacienteDTO, String> colCpfPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colTelPaciente;
+    private TableColumn<ListarPacienteDTO, String> colTelPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colEmailPaciente;
+    private TableColumn<ListarPacienteDTO, String> colEmailPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colCepPaciente;
+    private TableColumn<ListarPacienteDTO, String> colCepPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colCidadePaciente;
+    private TableColumn<ListarPacienteDTO, String> colCidadePaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colUfPaciente;
+    private TableColumn<ListarPacienteDTO, String> colUfPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, Void> colAcoesPaciente;
+    private TableColumn<ListarPacienteDTO, Void> colAcoesPaciente;
 
     @FXML
     private TextField pacienteTextField;
 
     @FXML
-    private ChoiceBox<ConsultaBuscarDTO> servicos;
+    private ChoiceBox<BuscarDadosAgendamentoDTO> servicos;
 
     @FXML
-    private ChoiceBox<ConsultaBuscarDTO> medicos;
+    private ChoiceBox<BuscarDadosAgendamentoDTO> medicos;
 
     @FXML
     private DatePicker data;
@@ -99,7 +95,7 @@ public class AtendenteAgendarConsultaController {
 
             {
                 btn.setOnAction(event -> {
-                    PacienteListarDTO paciente = getTableView().getItems().get(getIndex());
+                    ListarPacienteDTO paciente = getTableView().getItems().get(getIndex());
                     selecionarPaciente(paciente);
                 });
             }
@@ -127,17 +123,17 @@ public class AtendenteAgendarConsultaController {
     @FXML
     public void buscarPaciente(){
 
-        ObservableList<PacienteListarDTO> list = FXCollections.observableArrayList(
+        ObservableList<ListarPacienteDTO> list = FXCollections.observableArrayList(
                 pacienteService.buscarPaciente(dado.getText())
         );
         pacienteDTOTableView.setItems(list);
     }
 
-    private void selecionarPaciente(PacienteListarDTO paciente) {
+    private void selecionarPaciente(ListarPacienteDTO paciente) {
         pacienteTextField.setText(paciente.nome());
         pacienteId = paciente.id();
 
-        List<ConsultaBuscarDTO> listarServicos = agendamentoService.buscarServicosConsulta();
+        List<BuscarDadosAgendamentoDTO> listarServicos = agendamentoService.buscarServicosConsulta();
         servicos.setItems(FXCollections.observableArrayList(listarServicos));
 
     }
@@ -146,7 +142,7 @@ public class AtendenteAgendarConsultaController {
 
         servicoId = servicos.getSelectionModel().getSelectedItem().id();
 
-        ObservableList<ConsultaBuscarDTO> listaMedico = FXCollections.observableArrayList(
+        ObservableList<BuscarDadosAgendamentoDTO> listaMedico = FXCollections.observableArrayList(
                 agendamentoService.buscarMedicosConsulta(servicoId)
         );
 
@@ -167,7 +163,7 @@ public class AtendenteAgendarConsultaController {
     @FXML
     public void agendarConsulta(){
 
-        Boolean sucesso = agendamentoService.agendarConsulta(new ConsultaAgendarDTO(null, pacienteId, servicoId, medicoId, data.getValue(), horariosDisponiveis.getValue()));
+        Boolean sucesso = agendamentoService.agendarConsulta(new AgendarAgendamentoDTO(null, pacienteId, servicoId, medicoId, data.getValue(), horariosDisponiveis.getValue()));
 
         if (sucesso) {
             AtendenteLayoutController.getInstance().carregarListaConsulta();

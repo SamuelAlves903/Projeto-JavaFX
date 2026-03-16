@@ -1,6 +1,6 @@
 package com.clinica.fx.controller.atendente;
 
-import com.clinica.fx.dto.PacienteListarDTO;
+import com.clinica.fx.dto.ListarPacienteDTO;
 import com.clinica.fx.enums.Genero;
 import com.clinica.fx.service.PacienteService;
 import javafx.beans.property.SimpleObjectProperty;
@@ -16,34 +16,34 @@ public class AtendenteListaPacienteController {
     private PacienteService pacienteService =  new PacienteService();
 
     @FXML
-    private TableView<PacienteListarDTO> pacienteDTOTableView;
+    private TableView<ListarPacienteDTO> pacienteDTOTableView;
 
     @FXML
-    private TableColumn<PacienteListarDTO, Long> idPaciente;
+    private TableColumn<ListarPacienteDTO, Long> idPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colNomePaciente;
+    private TableColumn<ListarPacienteDTO, String> colNomePaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, Genero> colGeneroPaciente;
+    private TableColumn<ListarPacienteDTO, Genero> colGeneroPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colCpfPaciente;
+    private TableColumn<ListarPacienteDTO, String> colCpfPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colTelPaciente;
+    private TableColumn<ListarPacienteDTO, String> colTelPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colEmailPaciente;
+    private TableColumn<ListarPacienteDTO, String> colEmailPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colCepPaciente;
+    private TableColumn<ListarPacienteDTO, String> colCepPaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colCidadePaciente;
+    private TableColumn<ListarPacienteDTO, String> colCidadePaciente;
 
     @FXML
-    private TableColumn<PacienteListarDTO, String> colUfPaciente;
+    private TableColumn<ListarPacienteDTO, String> colUfPaciente;
 
     public void initialize() {
 
@@ -57,7 +57,7 @@ public class AtendenteListaPacienteController {
         colCidadePaciente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().cidade()));
         colUfPaciente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().uf()));
 
-        ObservableList<PacienteListarDTO> listaPacientes = FXCollections.observableArrayList(
+        ObservableList<ListarPacienteDTO> listaPacientes = FXCollections.observableArrayList(
                 pacienteService.listarPaciente()
                 );
 
