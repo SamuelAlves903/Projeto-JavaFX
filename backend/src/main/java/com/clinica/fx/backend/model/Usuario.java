@@ -2,6 +2,8 @@ package com.clinica.fx.backend.model;
 
 import com.clinica.fx.enums.Cargo;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,9 +26,15 @@ public class Usuario implements UserDetails {
     private Long id;
 
     @Column(unique = true)
+    @NotBlank(message = "O Login deve ser informado")
     private String login;
 
+    @Column(nullable = false)
+    @NotBlank(message = "A Senha não pode ser vazia!")
     private String password;
+
+    @Column(nullable = false)
+    @NotNull(message = "O Cargo deve ser informado!")
     private Cargo cargo;
 
     @Override

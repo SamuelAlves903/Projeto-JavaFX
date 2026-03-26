@@ -7,6 +7,7 @@ module clinicaFX {
     requires java.net.http;
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.datatype.jsr310;
+    requires jakarta.validation;
 
     exports com.clinica.fx;
     opens com.clinica.fx.controller to javafx.fxml;

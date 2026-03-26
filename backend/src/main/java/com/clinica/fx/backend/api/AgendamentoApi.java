@@ -41,7 +41,7 @@ public class AgendamentoApi {
     }
 
     @PostMapping("/agendarConsulta")
-    public ResponseEntity agendarConsulta(@RequestBody AgendarAgendamentoDTO consultaAgendarDTO) {
+    public ResponseEntity<?> agendarConsulta(@RequestBody AgendarAgendamentoDTO consultaAgendarDTO) {
 
         var sucesso = agendamentoService.agendarConsulta(consultaAgendarDTO);
         if (sucesso) {

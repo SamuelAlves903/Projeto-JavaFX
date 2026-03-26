@@ -1,10 +1,16 @@
 package com.clinica.fx.service;
 
 import com.clinica.fx.dto.*;
+import com.clinica.fx.exceptions.EntidadeNaoEncontradaException;
+import com.clinica.fx.exceptions.ValidacaoException;
 import com.clinica.fx.util.SessaoUsuario;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import jakarta.validation.ValidationException;
+
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -129,9 +135,8 @@ public class AgendamentoService {
         }
     }
 
-    public Boolean  agendarConsulta(AgendarAgendamentoDTO dto){
+    public void agendarConsulta(AgendarAgendamentoDTO dto) throws IOException, InterruptedException {
 
-        try {
             Map<String, String> map = new HashMap<>();
             map.put("id", null);
             map.put("pacienteId", dto.pacienteId().toString());
@@ -149,13 +154,19 @@ public class AgendamentoService {
                     .POST(HttpRequest.BodyPublishers.ofString(jsonRequest))
                     .build();
 
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> httpResponse = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-            return response.statusCode() == 200;
+            if (httpResponse.statusCode() == 400) {
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+                var erros = objectMapper.readValue(httpResponse.body(), new TypeReference<List<ErroValidacaoDTO>>(){});
+                throw new ValidacaoException(erros);
+            }
+
+            if (httpResponse.statusCode() == 404) {
+
+                var erro = objectMapper.readValue(httpResponse.body(), ErroDTO.class);
+                throw new EntidadeNaoEncontradaException(erro.mensagem());
+            }
+
     }
 }

@@ -1,14 +1,19 @@
 package com.clinica.fx.controller.atendente;
 
 import com.clinica.fx.dto.CadastroPacienteDTO;
+import com.clinica.fx.dto.ErroValidacaoDTO;
 import com.clinica.fx.enums.Genero;
+import com.clinica.fx.exceptions.ValidacaoException;
 import com.clinica.fx.service.PacienteService;
 import com.clinica.fx.util.Alerts;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 public class AtendenteCadastroPacienteController {
 
@@ -75,9 +80,15 @@ public class AtendenteCadastroPacienteController {
                     complementoPaciente.getText(),
                     cidadePaciente.getText(),
                     ufPaciente.getText()));
+
+            AtendenteLayoutController.getInstance().carregarListaPaciente();
         }
-        catch (Exception e){
+        catch (IOException | InterruptedException e){
             Alerts.erro("Erro ao cadastrar Paciente: " +  e.getMessage());
+        }
+        catch (ValidacaoException e){
+            List<ErroValidacaoDTO> alerts = e.getErros();
+            System.out.println(alerts);
         }
     }
 }

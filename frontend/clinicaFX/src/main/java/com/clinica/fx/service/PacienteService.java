@@ -1,7 +1,11 @@
 package com.clinica.fx.service;
 
 import com.clinica.fx.dto.CadastroPacienteDTO;
+import com.clinica.fx.dto.ErroDTO;
+import com.clinica.fx.dto.ErroValidacaoDTO;
 import com.clinica.fx.dto.ListarPacienteDTO;
+import com.clinica.fx.exceptions.EntidadeNaoEncontradaException;
+import com.clinica.fx.exceptions.ValidacaoException;
 import com.clinica.fx.util.SessaoUsuario;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -76,7 +80,7 @@ public class PacienteService {
 
     }
 
-    public String criarPaciente(CadastroPacienteDTO dto) throws IOException, InterruptedException {
+    public void criarPaciente(CadastroPacienteDTO dto) throws IOException, InterruptedException {
 
         Map<String, String> map = new HashMap<>();
         map.put("id", null);
@@ -105,11 +109,11 @@ public class PacienteService {
 
         HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 
-        if (httpResponse.statusCode() == 200) {
+        if (httpResponse.statusCode() == 400) {
 
-            return httpResponse.body();
+            var erros = objectMapper.readValue(httpResponse.body(), new TypeReference<List<ErroValidacaoDTO>>(){});
+            throw new ValidacaoException(erros);
         }
-         return null;
     }
 
     public void editarPaciente(CadastroPacienteDTO dto){

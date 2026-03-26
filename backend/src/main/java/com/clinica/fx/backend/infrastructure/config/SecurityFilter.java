@@ -1,6 +1,7 @@
-package com.clinica.fx.backend.security;
+package com.clinica.fx.backend.infrastructure.config;
 
 import com.clinica.fx.backend.repository.UsuarioRepository;
+import com.clinica.fx.backend.infrastructure.security.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

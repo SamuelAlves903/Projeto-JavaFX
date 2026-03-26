@@ -59,7 +59,7 @@ public class PacienteService {
 
     public void salvarPaciente(CadastroPacienteDTO pacienteCadastroDTO) {
 
-        @Valid Paciente paciente = new Paciente(
+        Paciente paciente = new Paciente(
                 null,
                 pacienteCadastroDTO.nome(),
                 pacienteCadastroDTO.dataNascimento(),

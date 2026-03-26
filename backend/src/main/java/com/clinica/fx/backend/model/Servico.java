@@ -1,11 +1,9 @@
 package com.clinica.fx.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,12 +21,16 @@ public class Servico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @Column(length = 100, nullable = false)
+    @NotBlank(message = "O Nome não pode ser vazio!")
+    @Size(min = 3, max = 100, message = "O nome deve ter entre 3 a 100 caracteres!")
     private String nome;
 
-    @NotNull
+    @Column(nullable = false)
+    @NotNull(message = "Informe o Preço!")
     private BigDecimal preco;
 
-    @NotBlank
+    @Column(nullable = false)
+    @NotBlank(message = "Informe a descrição do serviço")
     private String descricao;
 }

@@ -1,9 +1,10 @@
 package com.clinica.fx.backend.api;
 
-import com.clinica.fx.backend.security.TokenService;
+import com.clinica.fx.backend.infrastructure.security.TokenService;
 import com.clinica.fx.backend.service.PacienteService;
 import com.clinica.fx.dto.CadastroPacienteDTO;
 import com.clinica.fx.dto.ListarPacienteDTO;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class PacienteApi {
     }
 
     @PostMapping("/salvar")
-    public ResponseEntity<String> salvarPaciente(@RequestBody CadastroPacienteDTO pacienteCadastroDTO) {
+    public ResponseEntity<String> salvarPaciente(@RequestBody @Valid CadastroPacienteDTO pacienteCadastroDTO) {
 
         try{
             pacienteService.salvarPaciente(pacienteCadastroDTO);

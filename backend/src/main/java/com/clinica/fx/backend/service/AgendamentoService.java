@@ -43,7 +43,7 @@ public class AgendamentoService {
                     agendamento.getServico().getNome(),
                     agendamento.getMedico().getNome(),
                     agendamento.getData(),
-                    agendamento.getHora()
+                    agendamento.getHorario()
             ));
         }
 
@@ -83,7 +83,7 @@ public class AgendamentoService {
     public List<LocalTime> buscarHorariosDisponiveis(BuscarHorariosAgendamentoDTO dto) {
 
         List<Agendamento> agendamentos = agendamentoRepository.findByMedicoIdAndServicoIdAndData(dto.idMedico(), dto.idServico(),  dto.data());
-        List<LocalTime> horariosOcupados = agendamentos.stream().map(Agendamento::getHora).toList();
+        List<LocalTime> horariosOcupados = agendamentos.stream().map(Agendamento::getHorario).toList();
 
         List<LocalTime> horariosDisponiveis = new ArrayList<>();
         LocalTime horarioInicio = LocalTime.of(8, 0);

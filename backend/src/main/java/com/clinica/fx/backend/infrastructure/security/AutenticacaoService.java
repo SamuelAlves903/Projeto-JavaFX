@@ -1,4 +1,4 @@
-package com.clinica.fx.backend.security;
+package com.clinica.fx.backend.infrastructure.security;
 
 import com.clinica.fx.backend.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

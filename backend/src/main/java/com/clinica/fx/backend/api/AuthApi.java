@@ -1,7 +1,7 @@
 package com.clinica.fx.backend.api;
 
 import com.clinica.fx.backend.model.Usuario;
-import com.clinica.fx.backend.security.TokenService;
+import com.clinica.fx.backend.infrastructure.security.TokenService;
 import com.clinica.fx.dto.LoginDTO;
 import com.clinica.fx.dto.LoginResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;

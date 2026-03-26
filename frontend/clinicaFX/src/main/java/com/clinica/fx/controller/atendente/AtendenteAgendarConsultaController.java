@@ -2,8 +2,11 @@ package com.clinica.fx.controller.atendente;
 
 import com.clinica.fx.dto.AgendarAgendamentoDTO;
 import com.clinica.fx.dto.BuscarDadosAgendamentoDTO;
+import com.clinica.fx.dto.ErroValidacaoDTO;
 import com.clinica.fx.dto.ListarPacienteDTO;
 import com.clinica.fx.enums.Genero;
+import com.clinica.fx.exceptions.EntidadeNaoEncontradaException;
+import com.clinica.fx.exceptions.ValidacaoException;
 import com.clinica.fx.service.AgendamentoService;
 import com.clinica.fx.service.PacienteService;
 import com.clinica.fx.util.Alerts;
@@ -13,6 +16,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -163,13 +168,22 @@ public class AtendenteAgendarConsultaController {
     @FXML
     public void agendarConsulta(){
 
-        Boolean sucesso = agendamentoService.agendarConsulta(new AgendarAgendamentoDTO(null, pacienteId, servicoId, medicoId, data.getValue(), horariosDisponiveis.getValue()));
+        try {
 
-        if (sucesso) {
+            agendamentoService.agendarConsulta(new AgendarAgendamentoDTO(pacienteId, servicoId, medicoId, data.getValue(), horariosDisponiveis.getValue()));
             AtendenteLayoutController.getInstance().carregarListaConsulta();
         }
-        else {
+        catch (IOException | InterruptedException e){
             Alerts.erro("Erro ao agendar consulta");
         }
+        catch (ValidacaoException e){
+            List<ErroValidacaoDTO> listaErros = e.getErros();
+            System.out.println(listaErros);
+        }
+        catch (EntidadeNaoEncontradaException e){
+            Alerts.erro(e.getMessage());
+            System.out.println(e.getMessage());
+        }
+
     }
 }
