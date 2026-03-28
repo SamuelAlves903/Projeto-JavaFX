@@ -25,69 +25,69 @@ public class Paciente {
     private Long id;
 
     @Column(length = 100, nullable = false)
-    @NotBlank(message = "O Nome não pode ser vazio!")
+    @NotBlank(message = "Campo Obrigatorio!")
     @Size(min = 3, max = 100, message = "O nome deve ter entre 3 a 100 caracteres!")
     private String nome;
 
-    @NotNull
+    @NotNull(message = "Informe a data de nascimento!")
     private LocalDate dataNascimento;
 
     @Enumerated(EnumType.STRING)
-    @NotNull
+    @NotNull(message = "Selecione um genero!")
     private Genero genero;
 
     @Column(unique = true, length = 11,  nullable = false)
     @CPF(message = "CPF invalido!")
-    @NotBlank(message = "O CPF não pode ser vazio!")
+    @NotBlank(message = "Campo Obrigatorio!")
     @Size(min = 11, max = 11, message = "Tamanho do CPF invalido!")
     private String cpf;
 
     @Column(unique = true,  length = 11,  nullable = false)
-    @NotBlank(message = "O Telefone não pode ser vazio!")
+    @NotBlank(message = "Campo Obrigatorio!")
     @Size(min = 11, max = 11, message = "Tamanho do Telefone invalido!")
     private String telefone;
 
     @Column(unique = true, nullable = false)
     @Email(message = "Email invalido!")
-    @NotBlank(message = "O Email não pode ser vazio!")
+    @NotBlank(message = "Campo Obrigatorio!")
     private String email;
 
     @Column(nullable = false, length = 8)
-    @NotBlank(message = "O Cep não pode ser vazio!")
+    @NotBlank(message = "Campo Obrigatorio!")
     @Size(min = 8, max = 8)
     private String cep;
 
     @Column(nullable = false)
-    @NotBlank(message = "O Endereço não pode ser vazio!")
+    @NotBlank(message = "Campo Obrigatorio!")
     private String endereco;
 
     @Column(nullable = false)
-    @NotBlank(message = "O Bairro não pode ser vazio!")
+    @NotBlank(message = "Campo Obrigatorio!")
     private String bairro;
 
     @Column(nullable = false)
-    @NotBlank(message = "O Numero não pode ser vazio!")
+    @NotBlank(message = "Campo Obrigatorio!")
     private String numero;
 
     private String complemento;
 
     @Column(nullable = false)
-    @NotBlank(message = "A Cidade não pode ser vazio!")
+    @NotBlank(message = "Campo Obrigatorio!")
     private String cidade;
 
     @Column(nullable = false)
-    @NotBlank(message = "O UF não pode ser vazio!")
+    @NotBlank(message = "Campo Obrigatorio!")
     @Size(min = 2, max = 2)
     private String uf;
 
     @Column(nullable = false)
-    @NotNull(message = "Informe a data criação")
+    @NotNull
     private LocalDate dataCriacao;
 
     private LocalDate dataDesativacao;
 
     @Column(nullable = false)
-    @NotNull(message = "Ativo não pode ser nulo!")
+    @NotNull
     private Boolean ativo;
 
     @PrePersist

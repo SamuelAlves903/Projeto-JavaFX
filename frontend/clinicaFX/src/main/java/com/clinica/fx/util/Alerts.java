@@ -9,4 +9,16 @@ public class Alerts {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    public static void aviso(String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public static void sucesso(String message) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

@@ -20,21 +20,21 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "O Paciente não pode ser nulo!")
+    @NotNull(message = "Selecione um paciente!")
     @ManyToOne
     private Paciente paciente;
 
-    @NotNull(message = "O Servico não pode ser nulo!")
+    @NotNull(message = "Selecione um serviço!")
     @ManyToOne
     private Servico servico;
 
-    @NotNull(message = "O Medico não pode ser nulo!")
+    @NotNull(message = "Selecione um medico!")
     @ManyToOne
     private Medico medico;
 
-    @NotNull(message = "A Data não pode ser nula!")
+    @NotNull(message = "Selecione uma data!")
     private LocalDate data;
 
-    @NotNull(message = "O Horario não pode ser nulo!")
+    @NotNull(message = "Selecione um horario!")
     private LocalTime horario;
 }

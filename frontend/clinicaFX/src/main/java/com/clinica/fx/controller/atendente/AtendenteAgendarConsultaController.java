@@ -144,6 +144,9 @@ public class AtendenteAgendarConsultaController {
     }
 
     public void selecionarServico(){
+        medicos.getItems().clear();
+        horariosDisponiveis.getItems().clear();
+        data.setValue(null);
 
         servicoId = servicos.getSelectionModel().getSelectedItem().id();
 
@@ -168,22 +171,51 @@ public class AtendenteAgendarConsultaController {
     @FXML
     public void agendarConsulta(){
 
+        if (!validarCampos()){return;}
+
         try {
 
             agendamentoService.agendarConsulta(new AgendarAgendamentoDTO(pacienteId, servicoId, medicoId, data.getValue(), horariosDisponiveis.getValue()));
+            Alerts.sucesso("Agendamento agendado com sucesso");
             AtendenteLayoutController.getInstance().carregarListaConsulta();
         }
         catch (IOException | InterruptedException e){
-            Alerts.erro("Erro ao agendar consulta");
+            Alerts.erro("Erro inesperado ao agendar consulta!");
         }
         catch (ValidacaoException e){
-            List<ErroValidacaoDTO> listaErros = e.getErros();
-            System.out.println(listaErros);
+
+            if (!e.getErros().isEmpty()) {
+                Alerts.erro(e.getErros().getFirst().mensagem());
+            }
         }
         catch (EntidadeNaoEncontradaException e){
             Alerts.erro(e.getMessage());
-            System.out.println(e.getMessage());
+            AtendenteLayoutController.getInstance().carregarAgendarConsulta();
         }
+    }
 
+    private boolean validarCampos(){
+
+        if (pacienteId == null){
+            Alerts.aviso("Informe o identificador do Paciente!");
+            return false;
+        }
+        if (servicoId == null){
+            Alerts.aviso("Informe o identificador do Servico!");
+            return false;
+        }
+        if (medicoId == null){
+            Alerts.aviso("Informe o identificador do Medico!");
+            return false;
+        }
+        if (data == null){
+            Alerts.aviso("Informe o data!");
+            return false;
+        }
+        if (horariosDisponiveis.getSelectionModel().getSelectedItem() == null){
+            Alerts.aviso("Selecione um horario!");
+            return false;
+        }
+        return true;
     }
 }
