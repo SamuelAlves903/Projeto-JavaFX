@@ -1,3 +1,25 @@
-#paneLogin {
-    -fx-background-color: blue;
+#stackPaneLogin{
+    -fx-background-color: #3c3c3c;
 }
+
+#paneLogin {
+    -fx-background-color: #070707;
+    -fx-background-radius: 25px;
+}
+
+.text-field {
+    -fx-prompt-text-fill: #6b6b6b;
+    -fx-background-color: #e1e1e1;
+    -fx-text-fill: #6b6b6b;
+}
+
+#buttonLogin {
+    -fx-background-color: #707070;
+    -fx-text-fill: black;
+}
+
+#buttonLogin:hover {
+    -fx-background-color: #3c3c3c;
+    -fx-text-fill: black;
+}
+

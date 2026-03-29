@@ -14,7 +14,8 @@ public class Main extends Application {
 
         Scene scene = new Scene(loader.load());
         scene.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
-        stage.setTitle("Clinica FX");
+        stage.setResizable(false);
+        stage.setTitle("Login - ClinicaFX");
         stage.setScene(scene);
         stage.show();
     }
