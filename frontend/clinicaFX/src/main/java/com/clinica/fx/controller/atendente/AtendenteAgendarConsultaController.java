@@ -2,7 +2,6 @@ package com.clinica.fx.controller.atendente;
 
 import com.clinica.fx.dto.AgendarAgendamentoDTO;
 import com.clinica.fx.dto.BuscarDadosAgendamentoDTO;
-import com.clinica.fx.dto.ErroValidacaoDTO;
 import com.clinica.fx.dto.ListarPacienteDTO;
 import com.clinica.fx.enums.Genero;
 import com.clinica.fx.exceptions.EntidadeNaoEncontradaException;
@@ -176,20 +175,20 @@ public class AtendenteAgendarConsultaController {
         try {
 
             agendamentoService.agendarConsulta(new AgendarAgendamentoDTO(pacienteId, servicoId, medicoId, data.getValue(), horariosDisponiveis.getValue()));
-            Alerts.sucesso("Agendamento agendado com sucesso");
+            Alerts.sucesso(AtendenteLayoutController.getStage(),"Agendamento agendado com sucesso");
             AtendenteLayoutController.getInstance().carregarListaConsulta();
         }
         catch (IOException | InterruptedException e){
-            Alerts.erro("Erro inesperado ao agendar consulta!");
+            Alerts.erro(AtendenteLayoutController.getStage(),"Erro inesperado ao agendar consulta!");
         }
         catch (ValidacaoException e){
 
             if (!e.getErros().isEmpty()) {
-                Alerts.erro(e.getErros().getFirst().mensagem());
+                Alerts.erro(AtendenteLayoutController.getStage(), e.getErros().getFirst().mensagem());
             }
         }
         catch (EntidadeNaoEncontradaException e){
-            Alerts.erro(e.getMessage());
+            Alerts.erro(AtendenteLayoutController.getStage(), e.getMessage());
             AtendenteLayoutController.getInstance().carregarAgendarConsulta();
         }
     }
@@ -197,23 +196,23 @@ public class AtendenteAgendarConsultaController {
     private boolean validarCampos(){
 
         if (pacienteId == null){
-            Alerts.aviso("Informe o identificador do Paciente!");
+            Alerts.aviso(AtendenteLayoutController.getStage(),"Informe o identificador do Paciente!");
             return false;
         }
         if (servicoId == null){
-            Alerts.aviso("Informe o identificador do Servico!");
+            Alerts.aviso(AtendenteLayoutController.getStage(),"Informe o identificador do Servico!");
             return false;
         }
         if (medicoId == null){
-            Alerts.aviso("Informe o identificador do Medico!");
+            Alerts.aviso(AtendenteLayoutController.getStage(),"Informe o identificador do Medico!");
             return false;
         }
         if (data == null){
-            Alerts.aviso("Informe o data!");
+            Alerts.aviso(AtendenteLayoutController.getStage(),"Informe o data!");
             return false;
         }
         if (horariosDisponiveis.getSelectionModel().getSelectedItem() == null){
-            Alerts.aviso("Selecione um horario!");
+            Alerts.aviso(AtendenteLayoutController.getStage(),"Selecione um horario!");
             return false;
         }
         return true;

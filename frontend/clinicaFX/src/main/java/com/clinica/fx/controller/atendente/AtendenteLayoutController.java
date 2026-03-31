@@ -1,6 +1,7 @@
 package com.clinica.fx.controller.atendente;
 
 import com.clinica.fx.util.LoadeScreen;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -16,6 +17,7 @@ public class AtendenteLayoutController {
     private Button btnSair;
 
     private static AtendenteLayoutController instance;
+    private static Stage stage;
 
     public void initialize() {
         instance = this;
@@ -24,11 +26,16 @@ public class AtendenteLayoutController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        Platform.runLater(() -> {
+            stage = (Stage) scrollPane.getScene().getWindow();
+            System.out.println("Stage capturado com sucesso: " + stage.getTitle());
+        });
     }
 
     public static AtendenteLayoutController getInstance() {
         return instance;
     }
+    public static Stage getStage() {return stage;}
 
     @FXML
     public void carregarListaPaciente(){

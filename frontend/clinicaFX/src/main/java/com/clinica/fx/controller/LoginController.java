@@ -37,7 +37,8 @@ public class LoginController {
                 stageAtual.show();
             }
             else {
-                Alerts.erro("Usuario ou Senha invalido!");
+                Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Alerts.erro(stageAtual, "Usuario ou Senha invalido!");
             }
         }
         catch (IOException ex){

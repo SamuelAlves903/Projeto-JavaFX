@@ -94,14 +94,16 @@ public class AtendenteCadastroPacienteController {
     @FXML
     private TextField ufPacienteErro;
 
-    public void initialize(){
+    public void initialize() {
         generoPaciente.getItems().addAll(Genero.MASCULINO.toString(), Genero.FEMININO.toString(), Genero.OUTRO.toString());
     }
 
     @FXML
-    public void cadastrarPaciente(){
+    public void cadastrarPaciente() {
 
-        if (!validarCampos()){return;}
+        if (!validarCampos()) {
+            return;
+        }
 
         try {
             pacienteService.criarPaciente(new CadastroPacienteDTO(
@@ -119,153 +121,150 @@ public class AtendenteCadastroPacienteController {
                     cidadePaciente.getText(),
                     ufPaciente.getText()));
 
-            Alerts.sucesso("Paciente criado com sucesso");
+            Alerts.sucesso(AtendenteLayoutController.getStage(),"Paciente criado com sucesso");
             AtendenteLayoutController.getInstance().carregarListaPaciente();
-        }
-        catch (IOException | InterruptedException e){
-            Alerts.erro("Erro inesperado ao cadastrar Paciente: " +  e.getMessage());
-        }
-        catch (ValidacaoException e){
-
+        } catch (IOException | InterruptedException e) {
+            Alerts.erro(AtendenteLayoutController.getStage(), "Erro inesperado ao cadastrar Paciente: " + e.getMessage());
+        } catch (ValidacaoException e) {
             validarExcecoes(e);
         }
+    }
+
+    private boolean validarCampos() {
+
+        if (nomePaciente.getText().isEmpty() || nomePaciente.getText().isBlank()) {
+
+            nomePacienteErro.setVisible(true);
+            nomePacienteErro.setText("Campo Obrigatorio!");
+            return false;
         }
+        if (dataNascimentoPaciente.getValue() == null) {
 
-        private boolean validarCampos(){
+            dataNascimentoPacienteErro.setVisible(true);
+            dataNascimentoPacienteErro.setText("Informe a data de nascimento!");
+            return false;
+        }
+        if (cpfPaciente.getText().isEmpty() || cpfPaciente.getText().isBlank()) {
 
-            if (nomePaciente.getText().isEmpty() || nomePaciente.getText().isBlank()){
+            cpfPacienteErro.setVisible(true);
+            cpfPacienteErro.setText("Campo Obrigatorio!");
+            return false;
+        }
+        if (telefonePaciente.getText().isEmpty() || telefonePaciente.getText().isBlank()) {
+
+            telefonePacienteErro.setVisible(true);
+            telefonePacienteErro.setText("Campo Obrigatorio!");
+            return false;
+        }
+        if (emailPaciente.getText().isEmpty() || emailPaciente.getText().isBlank()) {
+
+            emailPacienteErro.setVisible(true);
+            emailPacienteErro.setText("Campo Obrigatorio!");
+            return false;
+        }
+        if (cepPaciente.getText().isEmpty() || cepPaciente.getText().isBlank()) {
+
+            cepPacienteErro.setVisible(true);
+            cepPacienteErro.setText("Campo Obrigatorio!");
+            return false;
+        }
+        if (enderecoPaciente.getText().isEmpty() || enderecoPaciente.getText().isBlank()) {
+
+            enderecoPacienteErro.setVisible(true);
+            enderecoPacienteErro.setText("Campo Obrigatorio!");
+            return false;
+        }
+        if (bairroPaciente.getText().isEmpty() || bairroPaciente.getText().isEmpty()) {
+
+            bairroPacienteErro.setVisible(true);
+            bairroPacienteErro.setText("Campo Obrigatorio!");
+            return false;
+        }
+        if (numeroPaciente.getText().isEmpty() || numeroPaciente.getText().isEmpty()) {
+
+            numeroPacienteErro.setVisible(true);
+            numeroPacienteErro.setText("Campo Obrigatorio!");
+        }
+        if (cidadePaciente.getText().isEmpty() || cidadePaciente.getText().isEmpty()) {
+
+            cidadePacienteErro.setVisible(true);
+            cidadePacienteErro.setText("Campo Obrigatorio!");
+            return false;
+        }
+        if (ufPaciente.getText().isEmpty() || ufPaciente.getText().isBlank()) {
+
+            ufPacienteErro.setVisible(true);
+            ufPacienteErro.setText("Campo Obrigatorio!");
+            return false;
+        }
+        return true;
+    }
+
+    private void validarExcecoes(ValidacaoException e) {
+
+        List<ErroValidacaoDTO> alerts = e.getErros();
+        for (ErroValidacaoDTO erro : alerts) {
+            if (erro.campo().contains("nome")) {
 
                 nomePacienteErro.setVisible(true);
-                nomePacienteErro.setText("Campo Obrigatorio!");
-                return false;
+                nomePacienteErro.setText(erro.mensagem());
             }
-            if (dataNascimentoPaciente.getValue() == null){
+            if (erro.campo().contains("dataNascimento")) {
 
                 dataNascimentoPacienteErro.setVisible(true);
-                dataNascimentoPacienteErro.setText("Informe a data de nascimento!");
-                return false;
+                dataNascimentoPacienteErro.setText(erro.mensagem());
             }
-            if (cpfPaciente.getText().isEmpty() || cpfPaciente.getText().isBlank()){
+            if (erro.campo().contains("genero")) {
+
+                generoPacienteErro.setVisible(true);
+                generoPacienteErro.setText(erro.mensagem());
+            }
+            if (erro.campo().contains("cpf")) {
 
                 cpfPacienteErro.setVisible(true);
-                cpfPacienteErro.setText("Campo Obrigatorio!");
-                return false;
+                cpfPacienteErro.setText(erro.mensagem());
             }
-            if (telefonePaciente.getText().isEmpty() || telefonePaciente.getText().isBlank()){
+            if (erro.campo().contains("telefone")) {
 
                 telefonePacienteErro.setVisible(true);
-                telefonePacienteErro.setText("Campo Obrigatorio!");
-                return false;
+                telefonePacienteErro.setText(erro.mensagem());
             }
-            if (emailPaciente.getText().isEmpty() || emailPaciente.getText().isBlank()){
+            if (erro.campo().contains("email")) {
 
                 emailPacienteErro.setVisible(true);
-                emailPacienteErro.setText("Campo Obrigatorio!");
-                return false;
+                emailPacienteErro.setText(erro.mensagem());
             }
-            if (cepPaciente.getText().isEmpty() || cepPaciente.getText().isBlank()){
+            if (erro.campo().contains("cep")) {
 
                 cepPacienteErro.setVisible(true);
-                cepPacienteErro.setText("Campo Obrigatorio!");
-                return false;
+                cepPacienteErro.setText(erro.mensagem());
             }
-            if (enderecoPaciente.getText().isEmpty() || enderecoPaciente.getText().isBlank()){
+            if (erro.campo().contains("endereco")) {
 
                 enderecoPacienteErro.setVisible(true);
-                enderecoPacienteErro.setText("Campo Obrigatorio!");
-                return false;
+                enderecoPacienteErro.setText(erro.mensagem());
             }
-            if (bairroPaciente.getText().isEmpty() || bairroPaciente.getText().isEmpty()){
+            if (erro.campo().contains("bairro")) {
 
                 bairroPacienteErro.setVisible(true);
-                bairroPacienteErro.setText("Campo Obrigatorio!");
-                return false;
+                bairroPacienteErro.setText(erro.mensagem());
             }
-            if (numeroPaciente.getText().isEmpty() || numeroPaciente.getText().isEmpty()){
+            if (erro.campo().contains("numero")) {
 
                 numeroPacienteErro.setVisible(true);
-                numeroPacienteErro.setText("Campo Obrigatorio!");
+                numeroPacienteErro.setText(erro.mensagem());
             }
-            if (cidadePaciente.getText().isEmpty() || cidadePaciente.getText().isEmpty()){
+            if (erro.campo().contains("cidade")) {
 
                 cidadePacienteErro.setVisible(true);
-                cidadePacienteErro.setText("Campo Obrigatorio!");
-                return false;
+                cidadePacienteErro.setText(erro.mensagem());
             }
-            if (ufPaciente.getText().isEmpty() || ufPaciente.getText().isBlank()){
+            if (erro.campo().contains("uf")) {
 
                 ufPacienteErro.setVisible(true);
-                ufPacienteErro.setText("Campo Obrigatorio!");
-                return false;
-            }
-            return true;
-        }
-
-        private void validarExcecoes(ValidacaoException e){
-
-            List<ErroValidacaoDTO> alerts = e.getErros();
-            for (ErroValidacaoDTO erro : alerts){
-                if (erro.campo().contains("nome")){
-
-                    nomePacienteErro.setVisible(true);
-                    nomePacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("dataNascimento")){
-
-                    dataNascimentoPacienteErro.setVisible(true);
-                    dataNascimentoPacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("genero")) {
-
-                    generoPacienteErro.setVisible(true);
-                    generoPacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("cpf")){
-
-                    cpfPacienteErro.setVisible(true);
-                    cpfPacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("telefone")){
-
-                    telefonePacienteErro.setVisible(true);
-                    telefonePacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("email")){
-
-                    emailPacienteErro.setVisible(true);
-                    emailPacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("cep")){
-
-                    cepPacienteErro.setVisible(true);
-                    cepPacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("endereco")){
-
-                    enderecoPacienteErro.setVisible(true);
-                    enderecoPacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("bairro")){
-
-                    bairroPacienteErro.setVisible(true);
-                    bairroPacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("numero")){
-
-                    numeroPacienteErro.setVisible(true);
-                    numeroPacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("cidade")){
-
-                    cidadePacienteErro.setVisible(true);
-                    cidadePacienteErro.setText(erro.mensagem());
-                }
-                if (erro.campo().contains("uf")){
-
-                    ufPacienteErro.setVisible(true);
-                    ufPacienteErro.setText(erro.mensagem());
-                }
+                ufPacienteErro.setText(erro.mensagem());
             }
         }
+    }
 
 }
