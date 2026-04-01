@@ -2,61 +2,60 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clinica.fx.controller.atendente.AtendenteLayoutController">
-   <center>
-      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="369.0" prefWidth="411.0" BorderPane.alignment="CENTER" />
-   </center>
    <top>
-      <HBox prefHeight="29.0" prefWidth="433.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0" spacing="10.0" styleClass="hboxLayout" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="29.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
-            <MenuBar prefHeight="29.0" prefWidth="304.0">
-               <menus>
-                  <Menu mnemonicParsing="false" text="Paciente">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#carregarCadastroPaciente" text="Cadastro" />
-                        <MenuItem mnemonicParsing="false" onAction="#carregarListaPaciente" text="Listar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Consulta">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#carregarAgendarConsulta" text="Agendar" />
-                        <MenuItem mnemonicParsing="false" onAction="#carregarListaConsulta" text="Listar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Serviços">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#carregarListaServico" text="Listar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Historico">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#carregarPacienteHistorico" text="Paciente" />
-                        <MenuItem mnemonicParsing="false" onAction="#carregarConsultaHistorico" text="Consulta" />
-                        <MenuItem mnemonicParsing="false" onAction="#carregarServicoHistorico" text="Serviços" />
-                        <MenuItem mnemonicParsing="false" onAction="#carregarRelatorioHistorico" text="Relatorio" />
-                     </items>
-                  </Menu>
-               </menus>
-            </MenuBar>
-            <Button fx:id="btnSair" mnemonicParsing="false" onAction="#sair" text="Sair" textAlignment="CENTER">
+            <Label fx:id="labelLayout" prefHeight="35.0" prefWidth="112.0" text="ClinicaFx" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
                <HBox.margin>
-                  <Insets left="20.0" top="1.0" />
+                  <Insets left="15.0" />
                </HBox.margin>
+            </Label>
+            <MenuButton mnemonicParsing="false" text="Paciente">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#carregarCadastroPaciente" text="Cadastrar" />
+                <MenuItem mnemonicParsing="false" onAction="#carregarListaPaciente" text="Listar" />
+              </items>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" text="Consulta">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#carregarAgendarConsulta" text="Agendar" />
+                <MenuItem mnemonicParsing="false" onAction="#carregarListaConsulta" text="Listar" />
+              </items>
+            </MenuButton>
+            <Button mnemonicParsing="false" onAction="#carregarListaServico" text="Serviços" />
+            <MenuButton mnemonicParsing="false" text="Historico">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#carregarPacienteHistorico" text="Pacientes" />
+                  <MenuItem mnemonicParsing="false" onAction="#carregarConsultaHistorico" text="Consultas" />
+              </items>
+            </MenuButton>
+            <Button fx:id="btnSair" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sair" text="Sair" textAlignment="CENTER">
                <font>
                   <Font size="12.0" />
                </font>
+               <HBox.margin>
+                  <Insets top="1.0" />
+               </HBox.margin>
             </Button>
          </children>
       </HBox>
    </top>
+   <center>
+      <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

@@ -10,12 +10,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/atendente/layout.fxml"));
 
         Scene scene = new Scene(loader.load());
-        scene.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/css/atendente.css").toExternalForm());
         stage.setResizable(false);
-        stage.setTitle("Login - ClinicaFX");
+        stage.setMaximized(true);
+//        stage.setTitle("Login - ClinicaFX");
         stage.setScene(scene);
         stage.show();
     }

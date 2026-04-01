@@ -3,18 +3,24 @@ package com.clinica.fx.controller.atendente;
 import com.clinica.fx.util.LoadeScreen;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AtendenteLayoutController {
 
     @FXML
-    private ScrollPane scrollPane;
+    private StackPane stackPane;
 
     @FXML
     private Button btnSair;
+
+    @FXML
+    private Label labelLayout;
 
     private static AtendenteLayoutController instance;
     private static Stage stage;
@@ -22,13 +28,27 @@ public class AtendenteLayoutController {
     public void initialize() {
         instance = this;
         try {
-            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/inicio.fxml"));
+            Parent novaTela = LoadeScreen.carregarTela("/view/atendente/inicio.fxml");
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(novaTela);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         Platform.runLater(() -> {
-            stage = (Stage) scrollPane.getScene().getWindow();
-            System.out.println("Stage capturado com sucesso: " + stage.getTitle());
+            stage = (Stage) stackPane.getScene().getWindow();
+        });
+
+        labelLayout.setOnMouseClicked(e -> {
+            Parent novaTela;
+
+            try {
+                novaTela = LoadeScreen.carregarTela("/view/atendente/inicio.fxml");
+            }
+            catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(novaTela);
         });
     }
 
@@ -40,7 +60,9 @@ public class AtendenteLayoutController {
     @FXML
     public void carregarListaPaciente(){
         try{
-            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/lista_paciente.fxml"));
+            Parent novaTela = LoadeScreen.carregarTela("/view/atendente/lista_paciente.fxml");
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(novaTela);
         }
         catch (IOException e){
             throw new RuntimeException(e);
@@ -50,7 +72,9 @@ public class AtendenteLayoutController {
     @FXML
     public void carregarCadastroPaciente(){
         try {
-            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/cadastro_paciente.fxml"));
+            Parent novaTela = LoadeScreen.carregarTela("/view/atendente/cadastro_paciente.fxml");
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(novaTela);
         }
         catch (IOException e){
             throw new RuntimeException(e);
@@ -60,7 +84,9 @@ public class AtendenteLayoutController {
     @FXML
     public void carregarAgendarConsulta(){
         try {
-            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/agendar_consulta.fxml"));
+            Parent novaTela = LoadeScreen.carregarTela("/view/atendente/agendar_consulta.fxml");
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(novaTela);
         }
         catch (IOException e){
             throw new RuntimeException(e);
@@ -70,7 +96,9 @@ public class AtendenteLayoutController {
     @FXML
     public void carregarListaConsulta(){
         try {
-            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/lista_consulta.fxml"));
+            Parent novaTela = LoadeScreen.carregarTela("/view/atendente/lista_consulta.fxml");
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(novaTela);
         }
         catch (IOException e){
             throw new RuntimeException(e);
@@ -80,7 +108,9 @@ public class AtendenteLayoutController {
     @FXML
     public void carregarListaServico(){
         try {
-            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/lista_servico.fxml"));
+            Parent novaTela = LoadeScreen.carregarTela("/view/atendente/lista_servico.fxml");
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(novaTela);
         }
         catch (IOException e){
             throw new RuntimeException(e);
@@ -90,7 +120,9 @@ public class AtendenteLayoutController {
     @FXML
     public void carregarPacienteHistorico(){
         try {
-            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/paciente_historico.fxml"));
+            Parent novaTela = LoadeScreen.carregarTela("/view/atendente/paciente_historico.fxml");
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(novaTela);
         }
         catch (IOException e){
             throw new RuntimeException(e);
@@ -100,27 +132,9 @@ public class AtendenteLayoutController {
     @FXML
     public void carregarConsultaHistorico(){
         try {
-            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/consulta_historico.fxml"));
-        }
-        catch (IOException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
-    public void carregarServicoHistorico(){
-        try {
-            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/servico_historico.fxml"));
-        }
-        catch (IOException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
-    public void carregarRelatorioHistorico(){
-        try {
-            scrollPane.setContent(LoadeScreen.carregarTela("/view/atendente/relatorio_historico.fxml"));
+            Parent novaTela = LoadeScreen.carregarTela("/view/atendente/consulta_historico.fxml");
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(novaTela);
         }
         catch (IOException e){
             throw new RuntimeException(e);
