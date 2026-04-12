@@ -13,17 +13,20 @@
    <children>
       <StackPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="200.0" styleClass="inicioLayout" HBox.hgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="400.0" prefWidth="100.0" spacing="10.0" StackPane.alignment="CENTER">
+            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="400.0" prefWidth="100.0" StackPane.alignment="CENTER">
                <children>
                   <Label text="Serviços" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="36.0" />
                      </font>
                   </Label>
                   <Label text="Disponiveis" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="24.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
                   </Label>
                   <ListView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" />
                   <Button mnemonicParsing="false" text="Ver" textFill="#dc4537" VBox.vgrow="ALWAYS">
@@ -33,6 +36,9 @@
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
                   </Button>
                </children>
                <padding>
@@ -46,17 +52,20 @@
       </StackPane>
       <StackPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="200.0" styleClass="inicioLayout" HBox.hgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="400.0" prefWidth="100.0" spacing="10.0">
+            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="400.0" prefWidth="100.0" spacing="1.0">
                <children>
-                  <Label prefHeight="25.0" prefWidth="97.0" text="Bem-vindo" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+                  <Label minWidth="-Infinity" prefHeight="83.0" prefWidth="200.0" text="Bem-vindo" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Label prefWidth="170.0" text="Ao painel do atendente voce tera acesso a funcionalidades essenciais que todo atendente aqui na clinica deve possuir" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
-                  <Label prefWidth="170.0" text="Voce pode acessar as funcionalidades pelo menu!" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+                  <Label minWidth="-Infinity" prefHeight="174.0" prefWidth="400.0" text="Ao painel do atendente voce tera acesso a funcionalidades essenciais que todo atendente aqui na clinica deve possuir" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="24.0" />
+                     </font></Label>
+                  <Label minWidth="-Infinity" prefHeight="103.0" prefWidth="400.0" text="Voce pode acessar as funcionalidades pelo menu!" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
                </children>
@@ -74,26 +83,38 @@
       </StackPane>
       <StackPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="200.0" styleClass="inicioLayout" HBox.hgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="100.0" spacing="10.0">
+            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="100.0" spacing="1.0">
                <children>
-                  <Label text="Atendimento" VBox.vgrow="ALWAYS">
+                  <Label minWidth="-Infinity" prefHeight="52.0" prefWidth="244.0" text="Atendimento" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="72.0" prefWidth="263.0" text="De segunda a sexta fechamos aos feriados" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
+                  <Label prefHeight="38.0" prefWidth="156.0" text="Horarios" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Label prefWidth="170.0" text="De segunda a sexta fechamos aos feriados" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
-                  <Label text="Horarios" VBox.vgrow="ALWAYS">
+                  <Label minWidth="-Infinity" prefHeight="70.0" prefWidth="303.0" text="Horario de funcionamento das 8:00 as 18:00" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font size="24.0" />
+                     </font></Label>
+                  <Label prefHeight="39.0" prefWidth="167.0" text="Endereço" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Label prefWidth="170.0" text="Horario de funcionamento das 8:00 as 18:00" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
-                  <Label text="Endereço" VBox.vgrow="ALWAYS">
+                  <Label minWidth="-Infinity" prefHeight="70.0" prefWidth="257.0" text="Rua Aurea  -   Nr° 1810 Zona I" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label prefWidth="170.0" text="Rua Aurea  -   Nr° 1810 Zona I" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+                        <Font size="24.0" />
+                     </font></Label>
                </children>
                <padding>
                   <Insets left="10.0" right="10.0" />

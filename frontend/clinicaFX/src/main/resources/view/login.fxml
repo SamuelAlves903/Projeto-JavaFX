@@ -22,7 +22,7 @@
                   <Insets bottom="40.0" />
                </VBox.margin>
             </Label>
-            <Text fill="#707070" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
+            <Text fill="#e74c3c" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -35,7 +35,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <Text fill="#707070" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha">
+            <Text fill="#e74c3c" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

@@ -2,24 +2,28 @@
     -fx-background-color: #3c3c3c;
 }
 
+#stackPaneLogin .label{
+    -fx-text-fill: #e74c3c;
+}
+
 #paneLogin {
     -fx-background-color: #070707;
     -fx-background-radius: 25px;
 }
 
 .text-field {
-    -fx-prompt-text-fill: #6b6b6b;
+    -fx-prompt-text-fill: #e74c3c;
     -fx-background-color: #e1e1e1;
-    -fx-text-fill: #6b6b6b;
+    -fx-text-fill: #e74c3c;
 }
 
 #buttonLogin {
-    -fx-background-color: #707070;
-    -fx-text-fill: black;
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: #3c3c3c;
 }
 
 #buttonLogin:hover {
-    -fx-background-color: #3c3c3c;
-    -fx-text-fill: black;
+    -fx-background-color: #dc4537;
+    -fx-text-fill: #3c3c3c;
 }
 
