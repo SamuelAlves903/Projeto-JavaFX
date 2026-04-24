@@ -29,6 +29,7 @@ public class AtendenteLayoutController {
         instance = this;
         try {
             Parent novaTela = LoadeScreen.carregarTela("/view/atendente/inicio.fxml");
+            novaTela.getStylesheets().add(getClass().getResource("/css/inicio.css").toExternalForm());
             stackPane.getChildren().clear();
             stackPane.getChildren().add(novaTela);
         } catch (IOException e) {
@@ -43,6 +44,7 @@ public class AtendenteLayoutController {
 
             try {
                 novaTela = LoadeScreen.carregarTela("/view/atendente/inicio.fxml");
+                novaTela.getStylesheets().add(getClass().getResource("/css/inicio.css").toExternalForm());
             }
             catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -73,6 +75,7 @@ public class AtendenteLayoutController {
     public void carregarCadastroPaciente(){
         try {
             Parent novaTela = LoadeScreen.carregarTela("/view/atendente/cadastro_paciente.fxml");
+            novaTela.getStylesheets().add(getClass().getResource("/css/cadastro_paciente.css").toExternalForm());
             stackPane.getChildren().clear();
             stackPane.getChildren().add(novaTela);
         }

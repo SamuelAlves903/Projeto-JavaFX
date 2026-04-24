@@ -13,7 +13,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/atendente/layout.fxml"));
 
         Scene scene = new Scene(loader.load());
-        scene.getStylesheets().add(getClass().getResource("/css/atendente.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/css/layout.css").toExternalForm());
         stage.setResizable(false);
         stage.setMaximized(true);
 //        stage.setTitle("Login - ClinicaFX");

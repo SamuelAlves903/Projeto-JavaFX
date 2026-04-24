@@ -7,9 +7,12 @@ import com.clinica.fx.exceptions.ValidacaoException;
 import com.clinica.fx.service.PacienteService;
 import com.clinica.fx.util.Alerts;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -62,6 +65,9 @@ public class AtendenteCadastroPacienteController {
     private TextField cepPacienteErro;
 
     @FXML
+    private Button buscarCep;
+
+    @FXML
     private TextField enderecoPaciente;
 
     @FXML
@@ -96,6 +102,11 @@ public class AtendenteCadastroPacienteController {
 
     public void initialize() {
         generoPaciente.getItems().addAll(Genero.MASCULINO.toString(), Genero.FEMININO.toString(), Genero.OUTRO.toString());
+        nomePacienteErro.setVisible(false);
+        ImageView icon = new ImageView(new Image(getClass().getResourceAsStream("/images/lupa.png")));
+        icon.setFitHeight(20);
+        icon.setFitWidth(23);
+        buscarCep.setGraphic(icon);
     }
 
     @FXML

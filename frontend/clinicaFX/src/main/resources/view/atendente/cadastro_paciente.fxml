@@ -12,89 +12,151 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clinica.fx.controller.atendente.AtendenteCadastroPacienteController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="930.0" styleClass="vboxCadastroPaciente" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clinica.fx.controller.atendente.AtendenteCadastroPacienteController">
    <children>
       <Label text="Formulario Paciente">
          <VBox.margin>
-            <Insets top="10.0" />
+            <Insets bottom="20.0" top="20.0" />
          </VBox.margin>
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <TextField />
-      <GridPane hgap="10.0" vgap="10.0">
+      <GridPane alignment="CENTER_LEFT" hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="715.0" vgap="5.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="8.5" prefWidth="105.5" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="405.5" minWidth="10.0" prefWidth="164.5" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.5" minWidth="10.0" prefWidth="89.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.5" minWidth="10.0" prefWidth="191.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="405.5" minWidth="10.0" prefWidth="382.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="288.5" minWidth="10.0" prefWidth="270.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Nome" />
-            <Label text="CPF" GridPane.rowIndex="6" />
-            <Label text="Telefone" GridPane.rowIndex="8" />
-            <Label text="Email" GridPane.rowIndex="10" />
-            <Label text="CEP" GridPane.columnIndex="2" />
-            <Label text="Endereco" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label text="Bairro" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Label text="Numero" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <TextField fx:id="nomePaciente" GridPane.columnIndex="1" />
-            <TextField fx:id="cpfPaciente" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="telefonePaciente" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <TextField fx:id="emailPaciente" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <TextField fx:id="cepPaciente" GridPane.columnIndex="3" />
-            <TextField fx:id="enderecoPaciente" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <TextField fx:id="bairroPaciente" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <TextField fx:id="numeroPaciente" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Label prefHeight="18.0" prefWidth="109.0" text="Data Nascimento" GridPane.rowIndex="2" />
-            <Label text="Genero" GridPane.rowIndex="4" />
-            <Label prefHeight="18.0" prefWidth="89.0" text="Complemento" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-            <Label text="Cidade" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-            <Label text="Uf" GridPane.columnIndex="2" GridPane.rowIndex="12" />
-            <TextField fx:id="complementoPaciente" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-            <TextField fx:id="cidadePaciente" GridPane.columnIndex="3" GridPane.rowIndex="10" />
-            <TextField fx:id="ufPaciente" GridPane.columnIndex="3" GridPane.rowIndex="12" />
-            <DatePicker fx:id="dataNascimentoPaciente" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ChoiceBox fx:id="generoPaciente" prefHeight="27.0" prefWidth="166.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="nomePacienteErro" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="cepPacienteErro" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField fx:id="dataNascimentoPacienteErro" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="enderecoPacienteErro" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <TextField fx:id="generoPacienteErro" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="bairroPacienteErro" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <TextField fx:id="cpfPacienteErro" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField fx:id="numeroPacienteErro" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <TextField fx:id="telefonePacienteErro" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="12" />
-            <TextField fx:id="ufPacienteErro" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="13" />
-            <TextField fx:id="emailPacienteErro" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <TextField fx:id="cidadePacienteErro" disable="true" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+            <Label text="Nome" GridPane.halignment="LEFT">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label text="CPF" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label text="Telefone" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets right="88.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label text="Email" GridPane.halignment="LEFT" GridPane.rowIndex="9">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label text="CEP" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label text="Endereco" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label text="Bairro" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label text="Nr°" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets right="19.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <TextField fx:id="nomePaciente" styleClass="textFieldDados" GridPane.rowIndex="1" />
+            <TextField fx:id="cpfPaciente" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="189.0" styleClass="textFieldDados" GridPane.rowIndex="7" />
+            <TextField fx:id="telefonePaciente" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="166.0" styleClass="textFieldDados" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+            <TextField fx:id="emailPaciente" styleClass="textFieldDados" GridPane.rowIndex="10" />
+            <TextField fx:id="cepPaciente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="241.0" styleClass="textFieldDados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="enderecoPaciente" styleClass="textFieldDados" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="bairroPaciente" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="218.0" styleClass="textFieldDados" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="numeroPaciente" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="49.0" styleClass="textFieldDados" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+            <Label prefHeight="25.0" prefWidth="158.0" text="Data Nascimento" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label text="Genero" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label prefHeight="25.0" prefWidth="130.0" text="Complemento" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="9">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label text="Cidade" GridPane.halignment="LEFT" GridPane.rowIndex="12">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label text="Uf" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+               <GridPane.margin>
+                  <Insets right="27.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <TextField fx:id="complementoPaciente" styleClass="textFieldDados" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="cidadePaciente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="347.0" styleClass="textFieldDados" GridPane.rowIndex="13" />
+            <DatePicker fx:id="dataNascimentoPaciente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="189.0" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="generoPaciente" prefHeight="27.0" prefWidth="166.0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+            <TextField fx:id="nomePacienteErro" disable="true" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" styleClass="textFieldError" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></TextField>
+            <TextField fx:id="cepPacienteErro" disable="true" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" styleClass="textFieldError" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="dataNascimentoPacienteErro" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="189.0" styleClass="textFieldError" GridPane.rowIndex="5" />
+            <TextField fx:id="enderecoPacienteErro" disable="true" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" styleClass="textFieldError" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="generoPacienteErro" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="166.0" styleClass="textFieldError" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+            <TextField fx:id="bairroPacienteErro" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="166.0" styleClass="textFieldError" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="cpfPacienteErro" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="188.0" styleClass="textFieldError" GridPane.rowIndex="8" />
+            <TextField fx:id="numeroPacienteErro" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="119.0" styleClass="textFieldError" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+            <TextField fx:id="telefonePacienteErro" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="166.0" styleClass="textFieldError" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+            <TextField fx:id="ufPaciente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="47.0" styleClass="textFieldDados" GridPane.halignment="RIGHT" GridPane.rowIndex="13" />
+            <TextField fx:id="emailPacienteErro" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="405.0" styleClass="textFieldError" GridPane.rowIndex="11" />
+            <TextField fx:id="cidadePacienteErro" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="214.0" styleClass="textFieldError" GridPane.rowIndex="14" />
+            <Button mnemonicParsing="false" onAction="#cadastrarPaciente" prefHeight="27.0" prefWidth="71.0" styleClass="botao" text="Salvar" GridPane.columnIndex="1" GridPane.rowIndex="13">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin></Button>
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" styleClass="botao" text="Voltar" GridPane.columnIndex="1" GridPane.rowIndex="13">
+               <GridPane.margin>
+                  <Insets left="140.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="buscarCep" mnemonicParsing="false" prefHeight="27.0" prefWidth="38.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <TextField fx:id="ufPacienteErro" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="192.0" styleClass="textFieldError" GridPane.halignment="RIGHT" GridPane.rowIndex="14" />
          </children>
          <VBox.margin>
-            <Insets left="10.0" right="10.0" top="12.0" />
+            <Insets bottom="5.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
       </GridPane>
-      <Button mnemonicParsing="false" onAction="#cadastrarPaciente" text="Salvar">
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </Button>
    </children>
 </VBox>
