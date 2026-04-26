@@ -143,7 +143,7 @@ public class AgendamentoService {
             map.put("servicoId", dto.servicoId().toString());
             map.put("medicoId", dto.medicoId().toString());
             map.put("data", dto.data().toString());
-            map.put("hora", dto.hora().toString());
+            map.put("hora", dto.horario().toString());
 
             String jsonRequest = objectMapper.writeValueAsString(map);
 

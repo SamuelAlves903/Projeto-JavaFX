@@ -41,23 +41,23 @@ public class BackendApplication {
 
 			}
 
-//			if (pacienteRepository.count() == 0) {
-//				pacienteRepository.save(new Paciente(null, "Samuel", LocalDate.now(), Genero.valueOf("MASCULINO"), "01252902921", "44984527276", "alves@gmail.com", "87506748", "Rua Tavares", "Jardim Portugal", "1233", null, "Umuarama", "PR", LocalDate.now(), null, true));
-//				System.out.println("Paciente inicial criado com sucesso!");
-//
-//			}
-//
-//			if (servicoRepository.count() == 0) {
-//				servicoRepository.save(new Servico(null, "Geral", BigDecimal.valueOf(120.00), "Serviço Geral"));
-//				System.out.println("Serviço inicial criado com sucesso!");
-//
-//			}
-//
-//			if (medicoRepository.count() == 0) {
-//				medicoRepository.save(new Medico(null, "Douglas", "01252902921", "alves@gmail.com", "44984527276", "87506748", "PR", "pediatria",LocalDate.now(), null, true, servicoRepository.findById(1L).orElse(null)));
-//				System.out.println("Medico inicial criado com sucesso!");
-//
-//			}
+			if (pacienteRepository.count() == 0) {
+				pacienteRepository.save(new Paciente(null, "Samuel", LocalDate.now(), Genero.valueOf("MASCULINO"), "01252902921", "44984527276", "alves@gmail.com", "87506748", "Rua Tavares", "Jardim Portugal", "1233", null, "Umuarama", "PR", LocalDate.now(), null, true));
+				System.out.println("Paciente inicial criado com sucesso!");
+
+			}
+
+			if (servicoRepository.count() == 0) {
+				servicoRepository.save(new Servico(null, "Geral", BigDecimal.valueOf(120.00), "Serviço Geral"));
+				System.out.println("Serviço inicial criado com sucesso!");
+
+			}
+
+			if (medicoRepository.count() == 0) {
+				medicoRepository.save(new Medico(null, "Douglas", "01252902921", "alves@gmail.com", "44984527276", "87506748", "PR", "pediatria",LocalDate.now(), null, true, servicoRepository.findById(1L).orElse(null)));
+				System.out.println("Medico inicial criado com sucesso!");
+
+			}
 		};
 	}
 

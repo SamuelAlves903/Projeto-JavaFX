@@ -115,7 +115,7 @@ public class AgendamentoService {
                 servico,
                 medico,
                 dto.data(),
-                dto.hora()
+                dto.horario()
         );
 
         return agendamentoRepository.save(agendamento) != null;
