@@ -1,0 +1,43 @@
+#vboxLista {
+    -fx-background-color: transparent;
+}
+
+#pacienteDTOTableView {
+    -fx-background-color: #070707;
+    -fx-border-color: #e74c3c;
+    -fx-border-width: 3px;
+}
+
+#pacienteDTOTableView .column-header{
+    -fx-background-color: #e74c3c;
+    -fx-border-color: #070707;
+    -fx-border-width: 1px;
+    -fx-font-weigth: bold;
+}
+
+#pacienteDTOTableView .column-header .label{
+    -fx-text-fill: #070707;
+    -fx-font-weight: bold;
+}
+
+#pacienteDTOTableView .label{
+    -fx-text-fill: #e74c3c;
+    -fx-font-weight: bold;
+}
+
+#toolbarFiltroListaPaciente {
+    -fx-background-color: transparent;
+}
+
+#toolbarFiltroListaPaciente .button{
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: #070707;
+    -fx-font-weight: bold;
+}
+
+#toolbarFiltroListaPaciente .text-field{
+    -fx-prompt-text-fill: #e74c3c;
+    -fx-background-color: #070707;
+    -fx-text-fill: #e74c3c;
+    -fx-font-weight: bold;
+}

@@ -63,6 +63,7 @@ public class AtendenteLayoutController {
     public void carregarListaPaciente(){
         try{
             Parent novaTela = LoadeScreen.carregarTela("/view/atendente/lista_paciente.fxml");
+            novaTela.getStylesheets().add(getClass().getResource("/css/lista_paciente.css").toExternalForm());
             stackPane.getChildren().clear();
             stackPane.getChildren().add(novaTela);
         }

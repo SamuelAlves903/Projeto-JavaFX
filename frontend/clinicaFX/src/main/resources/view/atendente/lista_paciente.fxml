@@ -1,26 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1018.0" spacing="10.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clinica.fx.controller.atendente.AtendenteListaPacienteController">
+<VBox fx:id="vboxLista" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clinica.fx.controller.atendente.AtendenteListaPacienteController">
    <children>
-      <TableView fx:id="pacienteDTOTableView" prefHeight="200.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+      <Label text="Lista de Pacientes" textAlignment="CENTER" textFill="#e74c3c">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <ToolBar fx:id="toolbarFiltroListaPaciente" minWidth="-Infinity" prefHeight="40.0" prefWidth="700.0">
+        <items>
+            <HBox minWidth="-Infinity" prefHeight="0.0" prefWidth="1047.0" spacing="4.0">
+               <children>
+                <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="111.0" text="Novo Paciente" />
+                  <TextField promptText="Informe algum dado">
+                     <HBox.margin>
+                        <Insets left="710.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" text="Buscar" />
+               </children>
+            </HBox>
+        </items>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </ToolBar>
+      <TableView fx:id="pacienteDTOTableView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
          <columns>
-            <TableColumn fx:id="idPaciente" prefWidth="36.0" text="ID" />
-            <TableColumn fx:id="colNomePaciente" prefWidth="142.0" text="Nome" />
-            <TableColumn fx:id="colGeneroPaciente" prefWidth="100.5" text="Genero" />
-            <TableColumn fx:id="colCpfPaciente" prefWidth="108.5" text="CPF" />
-            <TableColumn fx:id="colTelPaciente" prefWidth="120.0" text="Telefone" />
-            <TableColumn fx:id="colEmailPaciente" prefWidth="173.0" text="Email" />
-            <TableColumn fx:id="colCepPaciente" prefWidth="108.5" text="CEP" />
-            <TableColumn fx:id="colCidadePaciente" prefWidth="139.0" text="Cidade" />
-            <TableColumn fx:id="colUfPaciente" prefWidth="74.5" text="UF" />
+            <TableColumn fx:id="idPaciente" maxWidth="-1.0" minWidth="40.0" prefWidth="40.0" text="ID" />
+            <TableColumn fx:id="colNomePaciente" maxWidth="-1.0" minWidth="175.0" prefWidth="175.0" text="Nome" />
+            <TableColumn fx:id="colGeneroPaciente" maxWidth="-1.0" minWidth="115.0" prefWidth="115.0" text="Genero" />
+            <TableColumn fx:id="colCpfPaciente" maxWidth="-1.0" minWidth="120.0" prefWidth="120.0" text="CPF" />
+            <TableColumn fx:id="colTelPaciente" maxWidth="-1.0" minWidth="125.0" prefWidth="125.0" text="Telefone" />
+            <TableColumn fx:id="colEmailPaciente" maxWidth="-1.0" minWidth="200.0" prefWidth="200.0" text="Email" />
+            <TableColumn fx:id="colCepPaciente" maxWidth="-1.0" minWidth="110.0" prefWidth="110.0" text="CEP" />
+            <TableColumn fx:id="colCidadePaciente" maxWidth="-1.0" minWidth="125.0" prefWidth="125.0" text="Cidade" />
+            <TableColumn fx:id="colUfPaciente" maxWidth="-1.0" minWidth="45.0" prefWidth="45.0" text="UF" />
          </columns>
          <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
          </VBox.margin>
       </TableView>
    </children>
