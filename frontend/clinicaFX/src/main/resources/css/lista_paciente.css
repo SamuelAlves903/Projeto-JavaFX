@@ -2,6 +2,10 @@
     -fx-background-color: transparent;
 }
 
+#labelListaPaciente {
+    -fx-effect: dropshadow(three-pass-box, #070707, 4, 1, 0, 0);
+}
+
 #pacienteDTOTableView {
     -fx-background-color: #070707;
     -fx-border-color: #e74c3c;
@@ -31,8 +35,19 @@
 
 #toolbarFiltroListaPaciente .button{
     -fx-background-color: #e74c3c;
+    -fx-background-radius: 3px;
+    -fx-background-insets: 2px;
     -fx-text-fill: #070707;
     -fx-font-weight: bold;
+    -fx-border-color: #070707;
+    -fx-border-width: 3px;
+    -fx-border-radius: 3px;
+}
+
+#toolbarFiltroListaPaciente .button:hover{
+    -fx-background-color: #dc4537;
+    -fx-text-fill: #070707;
+    -fx-cursor: hand;
 }
 
 #toolbarFiltroListaPaciente .text-field{

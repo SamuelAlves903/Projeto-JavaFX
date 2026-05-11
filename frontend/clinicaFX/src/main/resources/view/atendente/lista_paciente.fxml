@@ -13,7 +13,7 @@
 
 <VBox fx:id="vboxLista" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clinica.fx.controller.atendente.AtendenteListaPacienteController">
    <children>
-      <Label text="Lista de Pacientes" textAlignment="CENTER" textFill="#e74c3c">
+      <Label fx:id="labelListaPaciente" text="Lista de Pacientes" textAlignment="CENTER" textFill="#e74c3c">
          <font>
             <Font name="System Bold" size="48.0" />
          </font>
@@ -22,13 +22,13 @@
         <items>
             <HBox minWidth="-Infinity" prefHeight="0.0" prefWidth="1047.0" spacing="4.0">
                <children>
-                <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="111.0" text="Novo Paciente" />
-                  <TextField promptText="Informe algum dado">
+                <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="119.0" text="Novo Paciente" />
+                  <TextField minWidth="-Infinity" prefHeight="27.0" prefWidth="153.0" promptText="Informe algum dado">
                      <HBox.margin>
-                        <Insets left="710.0" />
+                        <Insets left="700.0" top="4.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" text="Buscar" />
+                  <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="23.0" prefWidth="71.0" text="Buscar" />
                </children>
             </HBox>
         </items>
