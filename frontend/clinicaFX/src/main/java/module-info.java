@@ -8,6 +8,7 @@ module clinicaFX {
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.datatype.jsr310;
     requires jakarta.validation;
+    requires fr.brouillard.oss.cssfx;
 
     exports com.clinica.fx;
     opens com.clinica.fx.controller to javafx.fxml;

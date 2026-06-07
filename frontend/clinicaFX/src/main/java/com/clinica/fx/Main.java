@@ -1,5 +1,6 @@
 package com.clinica.fx;
 
+import fr.brouillard.oss.cssfx.CSSFX;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,6 +20,7 @@ public class Main extends Application {
 //        stage.setTitle("Login - ClinicaFX");
         stage.setScene(scene);
         stage.show();
+        CSSFX.start();
     }
 
     public static void main(String[] args) {

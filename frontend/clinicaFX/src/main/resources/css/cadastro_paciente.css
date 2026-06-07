@@ -47,12 +47,12 @@
 
 .botao{
     -fx-background-color: #e74c3c;
-    -fx-text-fill: #3c3c3c;
+    -fx-text-fill: #070707;
 }
 
 .botao:hover{
     -fx-background-color: #dc4537;
-    -fx-text-fill: #3c3c3c;
+    -fx-text-fill: #070707;
     -fx-cursor: hand;
 }
 

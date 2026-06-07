@@ -16,10 +16,10 @@
    <children>
       <Label text="Formulario Paciente">
          <VBox.margin>
-            <Insets bottom="20.0" top="20.0" />
+            <Insets bottom="20.0" top="10.0" />
          </VBox.margin>
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Label>
       <GridPane alignment="CENTER_LEFT" hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="715.0" vgap="5.0">
